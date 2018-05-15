@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12ECC88C6F39CF5C22121BB3 /* Pods_StandardWater_iOS_clientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65142B4AF812CF69717E017C /* Pods_StandardWater_iOS_clientTests.framework */; };
+		1EB43901712E62D97F2D8213 /* Pods_StandardWater_iOS_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21FAF0CB390A54BACC373D89 /* Pods_StandardWater_iOS_client.framework */; };
+		B38B0B5C4ED38808672812DD /* Pods_StandardWater_iOS_clientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802491259C6334A25D154FE8 /* Pods_StandardWater_iOS_clientUITests.framework */; };
 		E0F3C58820AB85C3003799D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3C58720AB85C3003799D8 /* AppDelegate.swift */; };
-		E0F3C58A20AB85C3003799D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3C58920AB85C3003799D8 /* ViewController.swift */; };
 		E0F3C58D20AB85C3003799D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0F3C58B20AB85C3003799D8 /* Main.storyboard */; };
 		E0F3C58F20AB85C5003799D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0F3C58E20AB85C5003799D8 /* Assets.xcassets */; };
 		E0F3C59220AB85C5003799D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0F3C59020AB85C5003799D8 /* LaunchScreen.storyboard */; };
 		E0F3C59D20AB85C5003799D8 /* StandardWater_iOS_clientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3C59C20AB85C5003799D8 /* StandardWater_iOS_clientTests.swift */; };
 		E0F3C5A820AB85C5003799D8 /* StandardWater_iOS_clientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3C5A720AB85C5003799D8 /* StandardWater_iOS_clientUITests.swift */; };
+		E0F3C5B620AB86AE003799D8 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3C5B520AB86AE003799D8 /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +37,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07D528EC15E79572FCACF0FB /* Pods-StandardWater iOS client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardWater iOS client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StandardWater iOS client/Pods-StandardWater iOS client.debug.xcconfig"; sourceTree = "<group>"; };
+		1F5FCC944DAFC653B93FA9C3 /* Pods-StandardWater iOS clientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardWater iOS clientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StandardWater iOS clientTests/Pods-StandardWater iOS clientTests.release.xcconfig"; sourceTree = "<group>"; };
+		21FAF0CB390A54BACC373D89 /* Pods_StandardWater_iOS_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StandardWater_iOS_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58295D6F7ED27511482A7F7E /* Pods-StandardWater iOS clientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardWater iOS clientUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StandardWater iOS clientUITests/Pods-StandardWater iOS clientUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		65142B4AF812CF69717E017C /* Pods_StandardWater_iOS_clientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StandardWater_iOS_clientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73B4497716E3D81C2EF93FE6 /* Pods-StandardWater iOS client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardWater iOS client.release.xcconfig"; path = "Pods/Target Support Files/Pods-StandardWater iOS client/Pods-StandardWater iOS client.release.xcconfig"; sourceTree = "<group>"; };
+		802491259C6334A25D154FE8 /* Pods_StandardWater_iOS_clientUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StandardWater_iOS_clientUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5FAC466E871E46A10215488 /* Pods-StandardWater iOS clientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardWater iOS clientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StandardWater iOS clientTests/Pods-StandardWater iOS clientTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DED82EDAC9D232C2BA81B0F1 /* Pods-StandardWater iOS clientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardWater iOS clientUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StandardWater iOS clientUITests/Pods-StandardWater iOS clientUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E0F3C58420AB85C3003799D8 /* StandardWater iOS client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "StandardWater iOS client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0F3C58720AB85C3003799D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E0F3C58920AB85C3003799D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E0F3C58C20AB85C3003799D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E0F3C58E20AB85C5003799D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0F3C59120AB85C5003799D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +58,7 @@
 		E0F3C5A320AB85C5003799D8 /* StandardWater iOS clientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "StandardWater iOS clientUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0F3C5A720AB85C5003799D8 /* StandardWater_iOS_clientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardWater_iOS_clientUITests.swift; sourceTree = "<group>"; };
 		E0F3C5A920AB85C5003799D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0F3C5B520AB86AE003799D8 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EB43901712E62D97F2D8213 /* Pods_StandardWater_iOS_client.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12ECC88C6F39CF5C22121BB3 /* Pods_StandardWater_iOS_clientTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +82,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B38B0B5C4ED38808672812DD /* Pods_StandardWater_iOS_clientUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DAD0930A8EF92773BBB73D95 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21FAF0CB390A54BACC373D89 /* Pods_StandardWater_iOS_client.framework */,
+				65142B4AF812CF69717E017C /* Pods_StandardWater_iOS_clientTests.framework */,
+				802491259C6334A25D154FE8 /* Pods_StandardWater_iOS_clientUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E0F3C57B20AB85C3003799D8 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +106,8 @@
 				E0F3C59B20AB85C5003799D8 /* StandardWater iOS clientTests */,
 				E0F3C5A620AB85C5003799D8 /* StandardWater iOS clientUITests */,
 				E0F3C58520AB85C3003799D8 /* Products */,
+				F62BD20CB3DEFFF42FDDCECC /* Pods */,
+				DAD0930A8EF92773BBB73D95 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,11 +125,11 @@
 			isa = PBXGroup;
 			children = (
 				E0F3C58720AB85C3003799D8 /* AppDelegate.swift */,
-				E0F3C58920AB85C3003799D8 /* ViewController.swift */,
 				E0F3C58B20AB85C3003799D8 /* Main.storyboard */,
 				E0F3C58E20AB85C5003799D8 /* Assets.xcassets */,
 				E0F3C59020AB85C5003799D8 /* LaunchScreen.storyboard */,
 				E0F3C59320AB85C5003799D8 /* Info.plist */,
+				E0F3C5B520AB86AE003799D8 /* SignInViewController.swift */,
 			);
 			path = "StandardWater iOS client";
 			sourceTree = "<group>";
@@ -125,6 +152,19 @@
 			path = "StandardWater iOS clientUITests";
 			sourceTree = "<group>";
 		};
+		F62BD20CB3DEFFF42FDDCECC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				07D528EC15E79572FCACF0FB /* Pods-StandardWater iOS client.debug.xcconfig */,
+				73B4497716E3D81C2EF93FE6 /* Pods-StandardWater iOS client.release.xcconfig */,
+				B5FAC466E871E46A10215488 /* Pods-StandardWater iOS clientTests.debug.xcconfig */,
+				1F5FCC944DAFC653B93FA9C3 /* Pods-StandardWater iOS clientTests.release.xcconfig */,
+				58295D6F7ED27511482A7F7E /* Pods-StandardWater iOS clientUITests.debug.xcconfig */,
+				DED82EDAC9D232C2BA81B0F1 /* Pods-StandardWater iOS clientUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E0F3C5AC20AB85C5003799D8 /* Build configuration list for PBXNativeTarget "StandardWater iOS client" */;
 			buildPhases = (
+				92F7AC1E26D8EE41AF1DC1F4 /* [CP] Check Pods Manifest.lock */,
 				E0F3C58020AB85C3003799D8 /* Sources */,
 				E0F3C58120AB85C3003799D8 /* Frameworks */,
 				E0F3C58220AB85C3003799D8 /* Resources */,
+				72B0E9FC7403FB43D06D739D /* [CP] Embed Pods Frameworks */,
+				3FEA8B11DB97EE90AB8AABB4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E0F3C5AF20AB85C5003799D8 /* Build configuration list for PBXNativeTarget "StandardWater iOS clientTests" */;
 			buildPhases = (
+				97F7D4C7947D1CE5AE2C36F1 /* [CP] Check Pods Manifest.lock */,
 				E0F3C59420AB85C5003799D8 /* Sources */,
 				E0F3C59520AB85C5003799D8 /* Frameworks */,
 				E0F3C59620AB85C5003799D8 /* Resources */,
+				1E2EA4D55E8B78F805EB0FDB /* [CP] Embed Pods Frameworks */,
+				80A2ABBBC9C2A5063DF63031 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E0F3C5B220AB85C5003799D8 /* Build configuration list for PBXNativeTarget "StandardWater iOS clientUITests" */;
 			buildPhases = (
+				DC4F2A084555225F944782EF /* [CP] Check Pods Manifest.lock */,
 				E0F3C59F20AB85C5003799D8 /* Sources */,
 				E0F3C5A020AB85C5003799D8 /* Frameworks */,
 				E0F3C5A120AB85C5003799D8 /* Resources */,
+				FF1B3D2943DEBD7DCE2C3D86 /* [CP] Embed Pods Frameworks */,
+				2ACE0370605A6D20FCE75967 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,12 +300,169 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1E2EA4D55E8B78F805EB0FDB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StandardWater iOS clientTests/Pods-StandardWater iOS clientTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2ACE0370605A6D20FCE75967 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StandardWater iOS clientUITests/Pods-StandardWater iOS clientUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3FEA8B11DB97EE90AB8AABB4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-StandardWater iOS client/Pods-StandardWater iOS client-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StandardWater iOS client/Pods-StandardWater iOS client-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72B0E9FC7403FB43D06D739D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-StandardWater iOS client/Pods-StandardWater iOS client-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StandardWater iOS client/Pods-StandardWater iOS client-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80A2ABBBC9C2A5063DF63031 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StandardWater iOS clientTests/Pods-StandardWater iOS clientTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92F7AC1E26D8EE41AF1DC1F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StandardWater iOS client-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97F7D4C7947D1CE5AE2C36F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StandardWater iOS clientTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC4F2A084555225F944782EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StandardWater iOS clientUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF1B3D2943DEBD7DCE2C3D86 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StandardWater iOS clientUITests/Pods-StandardWater iOS clientUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E0F3C58020AB85C3003799D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0F3C58A20AB85C3003799D8 /* ViewController.swift in Sources */,
+				E0F3C5B620AB86AE003799D8 /* SignInViewController.swift in Sources */,
 				E0F3C58820AB85C3003799D8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,11 +634,13 @@
 		};
 		E0F3C5AD20AB85C5003799D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07D528EC15E79572FCACF0FB /* Pods-StandardWater iOS client.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L5696BKBGY;
 				INFOPLIST_FILE = "StandardWater iOS client/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -446,11 +654,13 @@
 		};
 		E0F3C5AE20AB85C5003799D8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73B4497716E3D81C2EF93FE6 /* Pods-StandardWater iOS client.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L5696BKBGY;
 				INFOPLIST_FILE = "StandardWater iOS client/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,6 +674,7 @@
 		};
 		E0F3C5B020AB85C5003799D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5FAC466E871E46A10215488 /* Pods-StandardWater iOS clientTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -485,6 +696,7 @@
 		};
 		E0F3C5B120AB85C5003799D8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F5FCC944DAFC653B93FA9C3 /* Pods-StandardWater iOS clientTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -506,6 +718,7 @@
 		};
 		E0F3C5B320AB85C5003799D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58295D6F7ED27511482A7F7E /* Pods-StandardWater iOS clientUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -526,6 +739,7 @@
 		};
 		E0F3C5B420AB85C5003799D8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DED82EDAC9D232C2BA81B0F1 /* Pods-StandardWater iOS clientUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
