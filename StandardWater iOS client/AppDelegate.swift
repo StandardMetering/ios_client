@@ -10,17 +10,15 @@ import UIKit
 import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Initialize sign-in
         GIDSignIn.sharedInstance().clientID = "438678561117-1ve98ie1ob3ogvmcr8dqtt8ke66boc3c.apps.googleusercontent.com"
-        GIDSignIn.sharedInstance().delegate = self
-        
         
         return true
     }
@@ -46,39 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             annotation: annotation
         )
         
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        
-        if let error = error {
-            
-            print("\(error.localizedDescription)")
-            
-        } else {
-            
-            let userId = user.userID                  // For client-side use only!
-            let idToken = user.authentication.idToken // Safe to send to the server
-            let fullName = user.profile.name
-            
-            /*
-            let givenName = user.profile.givenName
-            let familyName = user.profile.familyName
-            let email = user.profile.email
-            */
- 
-            print(
-                "UserID: \(userId ?? "NULL")" +
-                "\nID Token: \(idToken ?? "NULL")" +
-                "\nFull Name: \(fullName ?? "NULL")"
-            )
-        }
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        // Perform any operations when the user disconnects from app here.
-        // ...
-        
-        print("Google User Disconnected")
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
