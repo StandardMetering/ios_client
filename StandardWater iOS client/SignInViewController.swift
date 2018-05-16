@@ -46,17 +46,38 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
             
         } else {
             
-            // Get data from sign in
-            let _ = user.authentication.idToken
-            let fullName = user.profile.name
+            // Update view
+            self.signInButton.isEnabled = false
+            self.lbl_loadingLabel.isHidden = false
+            self.lbl_loadingLabel.text = "Authenticating \(user.profile!.name)."
+            self.loadingWheel.isHidden = false
+            self.loadingWheel.startAnimating()
+            
+            UserModel(user).authenticateAsStandardWaterUser(onComplete: self.handleSW_Authentication)
+        }
+    }
+    
+    func handleSW_Authentication( isValidSWUser: Bool, user: UserModel? ) {
+        
+        if( isValidSWUser ) {
             
             // Update view
             self.signInButton.isEnabled = false
             self.lbl_loadingLabel.isHidden = false
-            self.lbl_loadingLabel.text = "Authenticating \(fullName!)."
-            self.loadingWheel.isHidden = false
-            self.loadingWheel.startAnimating()
+            self.lbl_loadingLabel.text = "\(user!.displayName) authenticated."
+            self.loadingWheel.isHidden = true
+            self.loadingWheel.stopAnimating()
             
+        } else {
+            
+            // Update view
+            self.signInButton.isEnabled = true
+            self.lbl_loadingLabel.isHidden = false
+            self.lbl_loadingLabel.text = "Not a valid Standard Water user."
+            self.loadingWheel.isHidden = true
+            self.loadingWheel.stopAnimating()
+            
+            GIDSignIn.sharedInstance().signOut()
         }
     }
     

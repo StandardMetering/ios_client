@@ -10,6 +10,7 @@
 		12ECC88C6F39CF5C22121BB3 /* Pods_StandardWater_iOS_clientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65142B4AF812CF69717E017C /* Pods_StandardWater_iOS_clientTests.framework */; };
 		1EB43901712E62D97F2D8213 /* Pods_StandardWater_iOS_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21FAF0CB390A54BACC373D89 /* Pods_StandardWater_iOS_client.framework */; };
 		B38B0B5C4ED38808672812DD /* Pods_StandardWater_iOS_clientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802491259C6334A25D154FE8 /* Pods_StandardWater_iOS_clientUITests.framework */; };
+		E08EB8FE20ACE65D00B8BCFD /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08EB8FD20ACE65D00B8BCFD /* UserModel.swift */; };
 		E0F3C58820AB85C3003799D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3C58720AB85C3003799D8 /* AppDelegate.swift */; };
 		E0F3C58D20AB85C3003799D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0F3C58B20AB85C3003799D8 /* Main.storyboard */; };
 		E0F3C58F20AB85C5003799D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0F3C58E20AB85C5003799D8 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 		E0F3C59D20AB85C5003799D8 /* StandardWater_iOS_clientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3C59C20AB85C5003799D8 /* StandardWater_iOS_clientTests.swift */; };
 		E0F3C5A820AB85C5003799D8 /* StandardWater_iOS_clientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3C5A720AB85C5003799D8 /* StandardWater_iOS_clientUITests.swift */; };
 		E0F3C5B620AB86AE003799D8 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3C5B520AB86AE003799D8 /* SignInViewController.swift */; };
+		E0F3C5B820ACCEFD003799D8 /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3C5B720ACCEFD003799D8 /* AuthenticationModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,7 @@
 		802491259C6334A25D154FE8 /* Pods_StandardWater_iOS_clientUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StandardWater_iOS_clientUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FAC466E871E46A10215488 /* Pods-StandardWater iOS clientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardWater iOS clientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StandardWater iOS clientTests/Pods-StandardWater iOS clientTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DED82EDAC9D232C2BA81B0F1 /* Pods-StandardWater iOS clientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardWater iOS clientUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StandardWater iOS clientUITests/Pods-StandardWater iOS clientUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E08EB8FD20ACE65D00B8BCFD /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		E0F3C58420AB85C3003799D8 /* StandardWater iOS client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "StandardWater iOS client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0F3C58720AB85C3003799D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0F3C58C20AB85C3003799D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,6 +62,7 @@
 		E0F3C5A720AB85C5003799D8 /* StandardWater_iOS_clientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardWater_iOS_clientUITests.swift; sourceTree = "<group>"; };
 		E0F3C5A920AB85C5003799D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0F3C5B520AB86AE003799D8 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		E0F3C5B720ACCEFD003799D8 /* AuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,8 @@
 				E0F3C59020AB85C5003799D8 /* LaunchScreen.storyboard */,
 				E0F3C59320AB85C5003799D8 /* Info.plist */,
 				E0F3C5B520AB86AE003799D8 /* SignInViewController.swift */,
+				E0F3C5B720ACCEFD003799D8 /* AuthenticationModel.swift */,
+				E08EB8FD20ACE65D00B8BCFD /* UserModel.swift */,
 			);
 			path = "StandardWater iOS client";
 			sourceTree = "<group>";
@@ -462,7 +468,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0F3C5B820ACCEFD003799D8 /* AuthenticationModel.swift in Sources */,
 				E0F3C5B620AB86AE003799D8 /* SignInViewController.swift in Sources */,
+				E08EB8FE20ACE65D00B8BCFD /* UserModel.swift in Sources */,
 				E0F3C58820AB85C3003799D8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
