@@ -68,6 +68,8 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
             self.loadingWheel.isHidden = true
             self.loadingWheel.stopAnimating()
             
+            performSegue(withIdentifier: "signInToMainMenu", sender: self)
+            
         } else {
             
             // Update view
