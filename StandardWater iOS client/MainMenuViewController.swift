@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 import GoogleSignIn
 
-class MainMenuViewController: UITableViewController {
+class MainMenuViewController: UITableViewController, UISplitViewControllerDelegate {
+    
+    private var collapseDetailViewController = true
     
     var userModel: UserModel!
     
@@ -23,10 +25,14 @@ class MainMenuViewController: UITableViewController {
     // ----------------------------------------------------------------------------------------------------------------
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.splitViewController?.delegate = self
         
         // Set add bar button
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         
+        // Get user model
         if let splitVC = self.splitViewController as? MainSplitViewController {
             if let userModel = splitVC.userModel {
                 self.userModel = userModel
@@ -63,6 +69,19 @@ class MainMenuViewController: UITableViewController {
         ))
         
         self.present(actionSheet, animated: true)
+    }
+    
+    func splitViewController(
+        _ splitViewController: UISplitViewController,
+        collapseSecondary secondaryViewController: UIViewController,
+        onto primaryViewController: UIViewController) -> Bool
+    {
+        return self.collapseDetailViewController
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.collapseDetailViewController = false
+        // ...
     }
     
     // ----------------------------------------------------------------------------------------------------------------

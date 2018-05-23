@@ -14,6 +14,10 @@ class MainSplitViewController: UISplitViewController {
     
     var userModel: UserModel?
     
+    override func viewDidLoad() {
+        self.preferredDisplayMode = .primaryOverlay
+    }
+    
     func signOutUser() {
         self.performSegue(withIdentifier: "unwindToSignInView", sender: self)
     }
