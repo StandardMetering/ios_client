@@ -121,6 +121,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Standard Meetering" id="8xZ-L4-tNj"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="signOutSegue" id="jjJ-MK-5or"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MD5-yb-CgV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -142,16 +145,18 @@
             </objects>
             <point key="canvasLocation" x="1160" y="-250"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Main Split View Controller-->
         <scene sceneID="WZe-6Z-fxi">
             <objects>
-                <splitViewController id="cB7-gm-UNt" sceneMemberID="viewController">
+                <splitViewController id="cB7-gm-UNt" customClass="MainSplitViewController" customModule="StandardWater_iOS_client" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="UXd-76-KeE" kind="relationship" relationship="masterViewController" id="KAG-5M-s9X"/>
                         <segue destination="8As-0z-msG" kind="relationship" relationship="detailViewController" id="iXU-mO-TcJ"/>
+                        <segue destination="Qi3-u1-L0e" kind="unwind" identifier="unwindToSignInView" unwindAction="unwindToSignInViewWithSegue:" id="30O-Ch-LRN"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4Y-BS-loN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Qi3-u1-L0e" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="207" y="84"/>
         </scene>

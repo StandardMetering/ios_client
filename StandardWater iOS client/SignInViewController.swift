@@ -15,6 +15,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
     @IBOutlet weak var signInButton: GIDSignInButton!
     @IBOutlet weak var lbl_loadingLabel: UILabel!
     @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
+    var userModel: UserModel?
     
     // ----------------------------------------------------------------------------------------------------------------
     // MARK: - Application Lifecycle
@@ -29,7 +30,13 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
         
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signInSilently()
+//        GIDSignIn.sharedInstance().signInSilently()
+    }
+    
+    @IBAction func unwindToSignInView(segue:UIStoryboardSegue) {
+        print("Signing Out")
+        GIDSignIn.sharedInstance().signOut()
+        self.sign(nil, didDisconnectWith: nil, withError: nil)
     }
     
     // ----------------------------------------------------------------------------------------------------------------
@@ -49,7 +56,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
             // Update view
             self.signInButton.isEnabled = false
             self.lbl_loadingLabel.isHidden = false
-            self.lbl_loadingLabel.text = "Authenticating \(user.profile!.name)."
+            self.lbl_loadingLabel.text = "Authenticating \(user.profile!.name!)."
             self.loadingWheel.isHidden = false
             self.loadingWheel.startAnimating()
             
@@ -61,6 +68,8 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
         
         if( isValidSWUser ) {
             
+            print("ID: \(user!.googleID)")
+            
             // Update view
             self.signInButton.isEnabled = false
             self.lbl_loadingLabel.isHidden = false
@@ -68,6 +77,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
             self.loadingWheel.isHidden = true
             self.loadingWheel.stopAnimating()
             
+            self.userModel = user;
             performSegue(withIdentifier: "signInToMainMenu", sender: self)
             
         } else {
