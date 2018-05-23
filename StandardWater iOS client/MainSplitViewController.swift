@@ -12,6 +12,8 @@ import GoogleSignIn
 
 class MainSplitViewController: UISplitViewController {
     
+    var userModel: UserModel?
+    
     func signOutUser() {
         self.performSegue(withIdentifier: "unwindToSignInView", sender: self)
     }

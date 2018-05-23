@@ -12,15 +12,11 @@ import GoogleSignIn
 
 class MainMenuViewController: UITableViewController {
     
+    var userModel: UserModel!
+    
     // Table view contants
     let sectionTitles = ["Installs", "Account Acctions"]
     let accountActions = ["View Profile", "Sign Out"]
-    
-    var userModel: UserModel! {
-        didSet (value) {
-            self.title = value.displayName
-        }
-    }
     
     // ----------------------------------------------------------------------------------------------------------------
     // MARK: - Application Lifecycle
@@ -31,6 +27,11 @@ class MainMenuViewController: UITableViewController {
         // Set add bar button
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         
+        if let splitVC = self.splitViewController as? MainSplitViewController {
+            if let userModel = splitVC.userModel {
+                self.userModel = userModel
+            }
+        }
     }
     
     // Stub
@@ -75,7 +76,7 @@ class MainMenuViewController: UITableViewController {
     
     // Section titles
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.sectionTitles[ section ]
+        return self.userModel.displayName + "'s " + self.sectionTitles[ section ]
     }
     
     // Num rows in section
@@ -121,7 +122,12 @@ class MainMenuViewController: UITableViewController {
             // Display different account actions
             if let label = cell.textLabel {
                 label.text = accountActions[indexPath.row]
+                
+                if indexPath.row == 1 {
+                    label.text = accountActions[indexPath.row] + " " + userModel.displayName
+                }
             }
+            
             break
         default:
             break
@@ -143,5 +149,7 @@ class MainMenuViewController: UITableViewController {
         default:
             break
         }
+        
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
 }

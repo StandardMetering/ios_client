@@ -18,6 +18,7 @@ class UserModel {
     
     // Member Variables
     var authenticated = false
+    var admin = false
     
     // Initializer
     init(_ user: GIDGoogleUser) {
@@ -30,10 +31,14 @@ class UserModel {
     func authenticateAsStandardWaterUser(onComplete callback: ((Bool, UserModel?)->Void)? = nil) {
         
         // Authenticate
-        AuthenticationModel.authenticate(token: self.accessToken) { isValidSWUser in
+        AuthenticationModel.authenticate(token: self.accessToken) { isValidSWUser, isAdmin in
             
             // Set authenticated flag
             self.authenticated = isValidSWUser;
+            
+            if isAdmin ?? false {
+                self.admin = true
+            }
             
             // Call callback if availible
             if let callback = callback {

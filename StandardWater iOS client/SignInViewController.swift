@@ -30,13 +30,21 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
         
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
-//        GIDSignIn.sharedInstance().signInSilently()
+        GIDSignIn.sharedInstance().signInSilently()
     }
     
     @IBAction func unwindToSignInView(segue:UIStoryboardSegue) {
         print("Signing Out")
         GIDSignIn.sharedInstance().signOut()
         self.sign(nil, didDisconnectWith: nil, withError: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "signInToMainMenu" {
+            if let dest = segue.destination as? MainSplitViewController {
+                dest.userModel = self.userModel
+            }
+        }
     }
     
     // ----------------------------------------------------------------------------------------------------------------
