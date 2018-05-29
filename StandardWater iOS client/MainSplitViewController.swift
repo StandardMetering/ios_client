@@ -15,7 +15,7 @@ class MainSplitViewController: UISplitViewController {
     var userModel: UserModel?
     
     override func viewDidLoad() {
-        self.preferredDisplayMode = .primaryOverlay
+        self.preferredDisplayMode = .allVisible
     }
     
     func signOutUser() {

@@ -13,6 +13,8 @@ import GoogleSignIn
 class MainMenuViewController: UITableViewController, UISplitViewControllerDelegate {
     
     private var collapseDetailViewController = true
+    private var detailDisplaySelected: DetailDisplay?
+    private var selectedInstall: InstallModel?
     
     var userModel: UserModel!
     
@@ -42,7 +44,10 @@ class MainMenuViewController: UITableViewController, UISplitViewControllerDelega
     
     // Stub
     @objc func addTapped() {
-        print("add tapped")
+        self.detailDisplaySelected = .beginNewInstall
+        self.selectedInstall = InstallModel(isComplete: false)
+        
+        self.performSegue(withIdentifier: "showDetail", sender: self)
     }
     
     func signOutOptionTapped() {
@@ -81,7 +86,13 @@ class MainMenuViewController: UITableViewController, UISplitViewControllerDelega
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         self.collapseDetailViewController = false
-        // ...
+        
+        if segue.identifier == "showDetail" {
+            if let dest = segue.destination as? DetailViewContainer {
+                dest.detailToDisplay = self.detailDisplaySelected
+                dest.installModel = self.selectedInstall
+            }
+        }
     }
     
     // ----------------------------------------------------------------------------------------------------------------
@@ -158,6 +169,16 @@ class MainMenuViewController: UITableViewController, UISplitViewControllerDelega
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
+            
+            if indexPath.row == 0 {
+                self.detailDisplaySelected = .beginNewInstall
+                self.selectedInstall = InstallModel(isComplete: false)
+            } else {
+                self.detailDisplaySelected = .completeInstall
+                self.selectedInstall = InstallModel(isComplete: true, installNum: indexPath.row - 1)
+            }
+            
+            self.performSegue(withIdentifier: "showDetail", sender: self)
             
             break
         case 1:

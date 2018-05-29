@@ -71,22 +71,82 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1121" y="83"/>
+            <point key="canvasLocation" x="-774" y="83"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Container-->
+        <scene sceneID="SGA-Y1-GBp">
+            <objects>
+                <viewController id="ooJ-LH-Tvj" customClass="DetailViewContainer" customModule="StandardWater_iOS_client" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wS5-UF-3fV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.20973837379999999" green="0.57830613850000001" blue="0.99764329200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="RRh-Ui-IWZ"/>
+                    </view>
+                    <connections>
+                        <segue destination="8As-0z-msG" kind="show" identifier="segueToBeginNewInstall" id="xG8-xl-SCI"/>
+                        <segue destination="BhE-xL-zxW" kind="show" identifier="segueToCompleteInstall" id="unO-RK-B4J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Y9-c5-gLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1159" y="458"/>
+        </scene>
+        <!--Begin New Install View Controller-->
         <scene sceneID="TMd-yA-a8h">
             <objects>
-                <viewController id="8As-0z-msG" sceneMemberID="viewController">
+                <viewController id="8As-0z-msG" customClass="BeginNewInstallViewController" customModule="StandardWater_iOS_client" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xgO-3F-R2L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin New Install" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNL-GJ-ny5">
+                                <rect key="frame" x="16" y="64" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TNL-GJ-ny5" firstAttribute="leading" secondItem="YOl-5h-XGO" secondAttribute="leading" constant="16" id="R3B-B8-PAF"/>
+                            <constraint firstItem="YOl-5h-XGO" firstAttribute="trailing" secondItem="TNL-GJ-ny5" secondAttribute="trailing" constant="16" id="hgM-cK-HS9"/>
+                            <constraint firstItem="TNL-GJ-ny5" firstAttribute="top" secondItem="YOl-5h-XGO" secondAttribute="top" id="vFZ-vd-L3E"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YOl-5h-XGO"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I2D-eH-qGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164" y="416"/>
+            <point key="canvasLocation" x="2116" y="458.32083958020991"/>
+        </scene>
+        <!--Complete Install View Controller-->
+        <scene sceneID="pMv-XU-nw5">
+            <objects>
+                <viewController id="BhE-xL-zxW" customClass="CompleteInstallViewController" customModule="StandardWater_iOS_client" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dYB-No-8I1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Complete Install" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIN-NN-JGc">
+                                <rect key="frame" x="16" y="64" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oIN-NN-JGc" firstAttribute="leading" secondItem="cMb-pK-QRc" secondAttribute="leading" constant="16" id="55E-BE-Yzo"/>
+                            <constraint firstItem="oIN-NN-JGc" firstAttribute="top" secondItem="cMb-pK-QRc" secondAttribute="top" id="QCu-I9-FJ1"/>
+                            <constraint firstItem="cMb-pK-QRc" firstAttribute="trailing" secondItem="oIN-NN-JGc" secondAttribute="trailing" constant="16" id="RrG-Px-yxe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cMb-pK-QRc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3au-dE-E2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2116" y="1188.7556221889056"/>
         </scene>
         <!--Standard Meetering-->
         <scene sceneID="AmZ-HZ-BbZ">
@@ -120,9 +180,11 @@
                             <outlet property="delegate" destination="RNK-tz-WuX" id="HRk-Io-csg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Standard Meetering" id="8xZ-L4-tNj"/>
+                    <navigationItem key="navigationItem" title="Standard Meetering" id="8xZ-L4-tNj">
+                        <barButtonItem key="backBarButtonItem" title=" " id="tR7-pv-qyt"/>
+                    </navigationItem>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="signOutSegue" id="jjJ-MK-5or"/>
+                        <segue destination="ooJ-LH-Tvj" kind="showDetail" identifier="showDetail" animates="NO" id="C2z-yS-UwJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MD5-yb-CgV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -151,8 +213,8 @@
                 <splitViewController id="cB7-gm-UNt" customClass="MainSplitViewController" customModule="StandardWater_iOS_client" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="UXd-76-KeE" kind="relationship" relationship="masterViewController" id="KAG-5M-s9X"/>
-                        <segue destination="8As-0z-msG" kind="relationship" relationship="detailViewController" id="iXU-mO-TcJ"/>
                         <segue destination="Qi3-u1-L0e" kind="unwind" identifier="unwindToSignInView" unwindAction="unwindToSignInViewWithSegue:" id="30O-Ch-LRN"/>
+                        <segue destination="ooJ-LH-Tvj" kind="relationship" relationship="detailViewController" id="lPj-yy-22J"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4Y-BS-loN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -161,4 +223,7 @@
             <point key="canvasLocation" x="207" y="84"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="C2z-yS-UwJ"/>
+    </inferredMetricsTieBreakers>
 </document>
