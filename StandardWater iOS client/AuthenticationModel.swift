@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GoogleSignIn
 
 // Constants
 let AUTH_URL = URL(string: "http://standardwater.ddns.net/authenticate")!
@@ -47,6 +48,35 @@ class AuthenticationModel {
                 
                 // Check for accepted response code
                 if res.statusCode != 200 {
+                    
+                    if res.statusCode == 401 /* Unauthorized */ {
+                        // Convert data from json
+                        var d = [String:AnyObject]()
+                        do {
+                            d = (try JSONSerialization.jsonObject(with: data!, options: []) as? [String: AnyObject])!
+                            
+                            let tokenTimeout = d["tkenTimeout"] as! Bool?
+                            if let tokenTimeout = tokenTimeout {
+                                if tokenTimeout  {
+                                    
+                                    // Re-sign in
+                                    GIDSignIn.sharedInstance().signIn()
+                                    
+                                    // Call this method with new access token
+                                    self.authenticate(
+                                        token: GIDSignIn.sharedInstance().currentUser.authentication.accessToken,
+                                        completionHandler: completionHandler
+                                    )
+                                }
+                            }
+                        } catch {
+                            print( error.localizedDescription )
+                            DispatchQueue.main.async {
+                                completionHandler( false, false );
+                            }
+                        }
+                    }
+                    
                     print( "HTTP Response \(res.statusCode)" )
                     DispatchQueue.main.async {
                         completionHandler( false, false );
