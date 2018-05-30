@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CompleteInstallViewController: UIViewController {
+class ExistingInstallViewController: UIViewController {
     
     var installModel: InstallModel?
     

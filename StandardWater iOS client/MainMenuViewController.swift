@@ -45,7 +45,7 @@ class MainMenuViewController: UITableViewController, UISplitViewControllerDelega
     // Stub
     @objc func addTapped() {
         self.detailDisplaySelected = .beginNewInstall
-        self.selectedInstall = InstallModel(isComplete: false)
+        self.selectedInstall = InstallModel()
         
         self.performSegue(withIdentifier: "showDetail", sender: self)
     }
@@ -172,10 +172,10 @@ class MainMenuViewController: UITableViewController, UISplitViewControllerDelega
             
             if indexPath.row == 0 {
                 self.detailDisplaySelected = .beginNewInstall
-                self.selectedInstall = InstallModel(isComplete: false)
+                self.selectedInstall = InstallModel()
             } else {
                 self.detailDisplaySelected = .completeInstall
-                self.selectedInstall = InstallModel(isComplete: true, installNum: indexPath.row - 1)
+                self.selectedInstall = InstallModel(installNum: indexPath.row - 1)
             }
             
             self.performSegue(withIdentifier: "showDetail", sender: self)

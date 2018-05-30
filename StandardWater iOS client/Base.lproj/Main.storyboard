@@ -40,7 +40,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Nv8-0O-4bG">
-                                <rect key="frame" x="177" y="123" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="123" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="JOU-Do-WE9"/>
                                 </constraints>
@@ -120,15 +120,15 @@
             </objects>
             <point key="canvasLocation" x="2116" y="458.32083958020991"/>
         </scene>
-        <!--Complete Install View Controller-->
+        <!--Existing Install View Controller-->
         <scene sceneID="pMv-XU-nw5">
             <objects>
-                <viewController id="BhE-xL-zxW" customClass="CompleteInstallViewController" customModule="StandardWater_iOS_client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BhE-xL-zxW" customClass="ExistingInstallViewController" customModule="StandardWater_iOS_client" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dYB-No-8I1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Complete Install" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIN-NN-JGc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Existing Install" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIN-NN-JGc">
                                 <rect key="frame" x="16" y="64" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>

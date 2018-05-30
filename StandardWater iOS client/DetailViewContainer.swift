@@ -57,7 +57,7 @@ class DetailViewContainer: UIViewController {
             }
             break;
         case "segueToCompleteInstall":
-            if let dest = segue.destination as? CompleteInstallViewController {
+            if let dest = segue.destination as? ExistingInstallViewController {
                 dest.installModel = self.installModel
             }
             break;

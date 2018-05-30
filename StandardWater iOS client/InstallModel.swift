@@ -10,15 +10,13 @@ import Foundation
 
 class InstallModel: CustomStringConvertible {
     
-    var complete: Bool
     var installNum: Int?
     
-    init(isComplete: Bool, installNum: Int? = nil) {
-        self.complete = isComplete
+    init(installNum: Int? = nil) {
         self.installNum = installNum
     }
     
     public var description: String {
-        return "\(self.complete ? "Complete install with num \(self.installNum ?? -1)" : "Incomplete install")"
+        return ( (self.installNum == nil) ? "Nil Install" : "Install #\(self.installNum)")
     }
 }
