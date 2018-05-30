@@ -34,12 +34,19 @@ class MainMenuViewController: UITableViewController, UISplitViewControllerDelega
         // Set add bar button
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         
+        fetchAllInstalls()
+        
         // Get user model
         if let splitVC = self.splitViewController as? MainSplitViewController {
             if let userModel = splitVC.userModel {
                 self.userModel = userModel
             }
         }
+        
+        self.refreshControl = UIRefreshControl()
+        refreshControl?.attributedTitle = NSAttributedString(string: "Fetching Installs")
+        refreshControl?.addTarget(self, action: #selector(didRecieveRefreshSignal), for: UIControlEvents.valueChanged)
+        tableView.addSubview(refreshControl!)
     }
     
     // Stub
@@ -93,6 +100,19 @@ class MainMenuViewController: UITableViewController, UISplitViewControllerDelega
                 dest.installModel = self.selectedInstall
             }
         }
+    }
+    
+    @objc func didRecieveRefreshSignal() {
+        print("Refresh")
+        
+        fetchAllInstalls()
+        
+        self.refreshControl?.endRefreshing()
+        self.tableView.reloadData()
+    }
+    
+    func fetchAllInstalls() {
+        return
     }
     
     // ----------------------------------------------------------------------------------------------------------------
