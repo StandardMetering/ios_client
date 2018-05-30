@@ -17,6 +17,6 @@ class InstallModel: CustomStringConvertible {
     }
     
     public var description: String {
-        return ( (self.installNum == nil) ? "Nil Install" : "Install #\(self.installNum)")
+        return ( (self.installNum == nil) ? "Nil Install" : "Install #\(self.installNum!)")
     }
 }

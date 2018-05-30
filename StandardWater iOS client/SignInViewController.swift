@@ -3,7 +3,7 @@ import UIKit
 import GoogleSignIn
 
 // Constants
-let TitleText = "Standard Water"
+let TitleText = "Standard Meetering"
 
 class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     

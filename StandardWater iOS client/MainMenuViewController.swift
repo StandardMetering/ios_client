@@ -31,7 +31,8 @@ class MainMenuViewController: UITableViewController, UISplitViewControllerDelega
         
         self.splitViewController?.delegate = self
         
-        // Set add bar button
+        // Nav Bar
+        self.title = "Standard Meetering"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         
         fetchAllInstalls()

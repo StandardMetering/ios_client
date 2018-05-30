@@ -9,25 +9,62 @@
 import Foundation
 import UIKit
 
-class BeginNewInstallViewController: UIViewController {
+class BeginNewInstallViewController: UIViewController, UITextFieldDelegate {
     
     var installModel: InstallModel?
+    
+    // UI Outlets
+    @IBOutlet weak var tf_installNum: UITextField!
+    @IBOutlet weak var tf_street: UITextField!
+    @IBOutlet weak var tf_city: UITextField!
+    @IBOutlet weak var tf_state: UITextField!
+    @IBOutlet weak var tf_zip: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Title
+        self.title = "New Install"
+        
+        // Text Fields
+        self.tf_installNum.delegate = self
+        self.tf_street.delegate = self
+        self.tf_city.delegate = self
+        self.tf_state.delegate = self
+        self.tf_zip.delegate = self
+        
         let newBackButton = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(self.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        print( "Model number: \(self.installModel?.description ?? "Nil")")
     }
     
     @objc func back(sender: UIBarButtonItem) {
         // Go back to the previous ViewController
         navigationController?.popViewController(animated: false)
     }
+    
+    // UI Text Field Delegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        if textField == self.tf_installNum {
+            tf_street.becomeFirstResponder()
+        } else if textField == self.tf_street {
+            tf_city.becomeFirstResponder()
+        } else if textField == tf_city {
+            tf_zip.becomeFirstResponder()
+        } else if textField == tf_zip {
+            submitPressed()
+        }
+        
+        return true
+    }
+    
+    // Actions
+    @IBAction func submitPressed() {
+        print("submit")
+    }
+    
+    
 }

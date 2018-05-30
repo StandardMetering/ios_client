@@ -20,12 +20,6 @@ class ExistingInstallViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = newBackButton
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        print( "Model number: \(self.installModel?.description ?? "Nil" )")
-    }
-    
     @objc func back(sender: UIBarButtonItem) {
         // Go back to the previous ViewController
         navigationController?.popViewController(animated: false)
