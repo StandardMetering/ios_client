@@ -11,6 +11,7 @@ import UIKit
 
 class BeginNewInstallViewController: UIViewController, UITextFieldDelegate {
     
+    var userModel: UserModel!
     var installModel: InstallModel?
     
     // UI Outlets
@@ -64,6 +65,14 @@ class BeginNewInstallViewController: UIViewController, UITextFieldDelegate {
     // Actions
     @IBAction func submitPressed() {
         print("submit")
+        
+        var add = InstallAddress()
+        add.street = self.tf_street.text
+        add.city = self.tf_city.text
+        add.state = self.tf_state.text
+        add.zip = self.tf_zip.text
+        
+        InstallModel.createNewInstall(user: userModel, installNum: Int(self.tf_installNum.text!)!, address: add)
     }
     
     

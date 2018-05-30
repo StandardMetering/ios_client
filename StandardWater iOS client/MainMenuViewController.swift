@@ -99,6 +99,7 @@ class MainMenuViewController: UITableViewController, UISplitViewControllerDelega
             if let dest = segue.destination as? DetailViewContainer {
                 dest.detailToDisplay = self.detailDisplaySelected
                 dest.installModel = self.selectedInstall
+                dest.userModel = self.userModel
             }
         }
     }

@@ -20,6 +20,7 @@ class DetailViewContainer: UIViewController {
     
     var detailToDisplay: DetailDisplay?
     var installModel: InstallModel?
+    var userModel: UserModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,7 @@ class DetailViewContainer: UIViewController {
         switch( segue.identifier ) {
         case "segueToBeginNewInstall":
             if let dest = segue.destination as? BeginNewInstallViewController {
+                dest.userModel = self.userModel
                 dest.installModel = self.installModel
             }
             break;
