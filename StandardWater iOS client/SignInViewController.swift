@@ -72,7 +72,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
         }
     }
     
-    func handleSW_Authentication( isValidSWUser: Bool, user: UserModel? ) {
+    func handleSW_Authentication( isValidSWUser: Bool, user: UserModel?, message: String? ) {
         
         if( isValidSWUser ) {
             
@@ -93,7 +93,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
             // Update view
             self.signInButton.isEnabled = true
             self.lbl_loadingLabel.isHidden = false
-            self.lbl_loadingLabel.text = "Not a valid Standard Water user."
+            self.lbl_loadingLabel.text = "Could not authenticate.\n\(message ?? "")"
             self.loadingWheel.isHidden = true
             self.loadingWheel.stopAnimating()
             

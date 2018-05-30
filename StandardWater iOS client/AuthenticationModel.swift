@@ -15,7 +15,7 @@ let AUTH_URL = URL(string: "http://standardwater.ddns.net/authenticate")!
 class AuthenticationModel {
     
     // Authenticate a users access token
-    static func authenticate(token: String, completionHandler: @escaping (Bool, Bool?) -> Void) {
+    static func authenticate(token: String, completionHandler: @escaping (Bool, Bool?, String?) -> Void) {
         
         // Form request
         var request = URLRequest(url: AUTH_URL)
@@ -28,8 +28,18 @@ class AuthenticationModel {
             // Check for error
             guard error == nil else {
                 print(error!)
+                
+                if let error = error as NSError? {
+                    if error.code == -1004 {
+                        DispatchQueue.main.async {
+                            completionHandler( false, false, "Could not connect to server.")
+                        }
+                        return
+                    }
+                }
+                
                 DispatchQueue.main.async {
-                    completionHandler( false, false );
+                    completionHandler( false, false, nil );
                 }
                 return
             }
@@ -38,7 +48,7 @@ class AuthenticationModel {
             guard let _ = data else {
                 print("Data is empty")
                 DispatchQueue.main.async {
-                    completionHandler( false, false );
+                    completionHandler( false, false, "Recieved Empty response from server." );
                 }
                 return
             }
@@ -67,19 +77,27 @@ class AuthenticationModel {
                                         token: GIDSignIn.sharedInstance().currentUser.authentication.accessToken,
                                         completionHandler: completionHandler
                                     )
+                                    return
                                 }
                             }
                         } catch {
                             print( error.localizedDescription )
                             DispatchQueue.main.async {
-                                completionHandler( false, false );
+                                completionHandler( false, false, "Recieved status \(res.statusCode)." );
                             }
+                            return
                         }
+                        
+                        print( "HTTP Response \(res.statusCode)" )
+                        DispatchQueue.main.async {
+                            completionHandler( false, false, "User not authorized.");
+                        }
+                        return
                     }
                     
                     print( "HTTP Response \(res.statusCode)" )
                     DispatchQueue.main.async {
-                        completionHandler( false, false );
+                        completionHandler( false, false, "Recieved status \(res.statusCode).");
                     }
                     return
                 }
@@ -92,7 +110,7 @@ class AuthenticationModel {
             } catch {
                 print( error.localizedDescription )
                 DispatchQueue.main.async {
-                    completionHandler( false, false );
+                    completionHandler( false, false, nil );
                 }
             }
             
@@ -104,7 +122,7 @@ class AuthenticationModel {
             guard let _ = isValidGoogleUser else {
                 print("Could not interprest response")
                 DispatchQueue.main.async {
-                    completionHandler( false, false );
+                    completionHandler( false, false, "Unrecognized response from server." );
                 }
                 return
             }
@@ -113,7 +131,7 @@ class AuthenticationModel {
             guard isValidGoogleUser! == true else {
                 print("Response indicates google user is not valid")
                 DispatchQueue.main.async {
-                    completionHandler( false, false );
+                    completionHandler( false, false, "Google Login Error." );
                 }
                 return
             }
@@ -122,7 +140,7 @@ class AuthenticationModel {
             guard let _ = isValidStandardWaterUser else {
                 print("Could not interprest response")
                 DispatchQueue.main.async {
-                    completionHandler( false, false );
+                    completionHandler( false, false, "Unrecognized response from server." );
                 }
                 return
             }
@@ -131,14 +149,14 @@ class AuthenticationModel {
             guard isValidStandardWaterUser! == true else {
                 print("Response indicates user is not valid")
                 DispatchQueue.main.async { 
-                    completionHandler( false, false );
+                    completionHandler( false, false, "Unauthorized User." );
                 }
                 return
             }
             
             // Report user as authenticated
             DispatchQueue.main.async {
-                completionHandler( true, d["isAdmin" ] as? Bool );
+                completionHandler( true, d["isAdmin" ] as? Bool, nil );
             }
         }
         

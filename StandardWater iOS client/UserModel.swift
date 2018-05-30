@@ -28,10 +28,10 @@ class UserModel {
     }
     
     // Authenticate current model with server
-    func authenticateAsStandardWaterUser(onComplete callback: ((Bool, UserModel?)->Void)? = nil) {
+    func authenticateAsStandardWaterUser(onComplete callback: ((Bool, UserModel?, String?)->Void)? = nil) {
         
         // Authenticate
-        AuthenticationModel.authenticate(token: self.accessToken) { isValidSWUser, isAdmin in
+        AuthenticationModel.authenticate(token: self.accessToken) { isValidSWUser, isAdmin, message in
             
             // Set authenticated flag
             self.authenticated = isValidSWUser;
@@ -43,9 +43,9 @@ class UserModel {
             // Call callback if availible
             if let callback = callback {
                 if self.authenticated {
-                    callback(true, self)
+                    callback(true, self, message)
                 } else {
-                    callback(false, nil)
+                    callback(false, nil, message)
                 }
             }
         }
