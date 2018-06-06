@@ -66,7 +66,7 @@ class BeginNewInstallViewController: UIViewController, UITextFieldDelegate {
     @IBAction func submitPressed() {
         print("submit")
         
-        var add = InstallAddress()
+        let add = InstallAddress()
         add.street = self.tf_street.text
         add.city = self.tf_city.text
         add.state = self.tf_state.text

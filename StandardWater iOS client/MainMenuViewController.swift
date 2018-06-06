@@ -21,6 +21,7 @@ class MainMenuViewController: UITableViewController, UISplitViewControllerDelega
     // Table view contants
     let sectionTitles = ["Installs", "Account Acctions"]
     let accountActions = ["View Profile", "Sign Out"]
+    var userInstalls = [InstallData]()
     
     // ----------------------------------------------------------------------------------------------------------------
     // MARK: - Application Lifecycle
@@ -35,14 +36,14 @@ class MainMenuViewController: UITableViewController, UISplitViewControllerDelega
         self.title = "Standard Meetering"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         
-        fetchAllInstalls()
-        
         // Get user model
         if let splitVC = self.splitViewController as? MainSplitViewController {
             if let userModel = splitVC.userModel {
                 self.userModel = userModel
             }
         }
+        
+        fetchAllInstalls()
         
         self.refreshControl = UIRefreshControl()
         refreshControl?.attributedTitle = NSAttributedString(string: "Fetching Installs")
@@ -110,10 +111,22 @@ class MainMenuViewController: UITableViewController, UISplitViewControllerDelega
         fetchAllInstalls()
         
         self.refreshControl?.endRefreshing()
-        self.tableView.reloadData()
     }
     
     func fetchAllInstalls() {
+        
+        InstallModel.getAllInstallsByUser(user: self.userModel ) { (installs: [InstallData]?) in
+            
+            guard let _ = installs else {
+                print("Error in installs")
+                return;
+            }
+            
+            self.userInstalls = installs!
+            self.tableView.reloadData()
+            
+        }
+        
         return
     }
     
@@ -135,7 +148,7 @@ class MainMenuViewController: UITableViewController, UISplitViewControllerDelega
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 10 + 1;
+            return self.userInstalls.count + 1;
         case 1:
             return accountActions.count
         default:
@@ -164,7 +177,7 @@ class MainMenuViewController: UITableViewController, UISplitViewControllerDelega
             // Recent Intall Rows
             cell.accessoryType = .disclosureIndicator
             if let label = cell.textLabel {
-                label.text = "Install \(indexPath.row)"
+                label.text = "Install #\(self.userInstalls[ indexPath.row - 1].installNum)"
             }
             break
             
