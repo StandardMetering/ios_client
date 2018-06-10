@@ -8,24 +8,42 @@
 
 import UIKit
 import CoreData
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        let splitViewController = self.window!.rootViewController as! UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-        splitViewController.delegate = self
 
-        let masterNavigationController = splitViewController.viewControllers[0] as! UINavigationController
-        let controller = masterNavigationController.topViewController as! MasterViewController
-        controller.managedObjectContext = self.persistentContainer.viewContext
+        // Initialize sign-in
+        GIDSignIn.sharedInstance().clientID = "438678561117-1ve98ie1ob3ogvmcr8dqtt8ke66boc3c.apps.googleusercontent.com"
+        
         return true
+    }
+    
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
+        -> Bool {
+            
+            return GIDSignIn.sharedInstance().handle(
+                url,
+                sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                annotation: [:]
+            )
+    }
+    
+    //for iOS 8, check availability
+    @available(iOS, introduced: 8.0, deprecated: 9.0)
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        
+        return GIDSignIn.sharedInstance().handle(
+            url as URL?,
+            sourceApplication: sourceApplication!,
+            annotation: annotation
+        )
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -63,6 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         }
         return false
     }
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
