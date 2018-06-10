@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Initialize sign-in
         GIDSignIn.sharedInstance().clientID = "438678561117-1ve98ie1ob3ogvmcr8dqtt8ke66boc3c.apps.googleusercontent.com"
         
+        UserModel.initModule()
+        
         return true
     }
     

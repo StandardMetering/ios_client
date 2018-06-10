@@ -16,18 +16,24 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
     @IBOutlet weak var lbl_activityText: UILabel!
     @IBOutlet weak var ai_loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var lbl_copyrightInfo: UILabel!
+    @IBOutlet weak var btn_proceed: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.lbl_applicationTitle.text = APPLICATION_TITLE
-        self.lbl_copyrightInfo.text = COPYRIGHT_STRING
         
         self.stopProcess()
         
+        self.title = APPLICATION_TITLE
+        self.lbl_applicationTitle.text = "Sign In"
+        self.lbl_copyrightInfo.text = COPYRIGHT_STRING
+        
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signInSilently()
+        
+        if let user = UserModel.getSharedInstance() {
+            stopProcess(forReason: "Local User: \(user.display_name)")
+            self.btn_proceed.isHidden = false
+        }
     }
 
     func startProcess(withName processName: String? = nil) {
@@ -48,6 +54,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
         
         self.ai_loadingIndicator.isHidden = true
         self.ai_loadingIndicator.stopAnimating()
+        self.btn_proceed.isHidden = true
         
         if let reason = haltReason {
             self.lbl_activityText.text = reason
@@ -55,6 +62,17 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
         } else {
             self.lbl_activityText.isHidden = true
         }
+    }
+    
+    @IBAction func proceedBtnPressed() {
+        
+        guard let user = UserModel.getSharedInstance() else {
+            print("User disconnect")
+            return
+        }
+        
+        user.onlineStatus = false
+        performSegue(withIdentifier: "segueToSplitView", sender: self)
     }
     
     // MARK: - Segue
@@ -78,13 +96,44 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
         }
         
         guard user != nil else {
-            
             self.stopProcess(forReason: "Nil value found when expected user object." )
-            
             return;
         }
         
-        self.stopProcess(forReason: "User identified as: \(user.profile.name!)")
+        UserModel.signIn(newUser: user)
+        self.stopProcess(forReason: "Proceed locally or proceed online.")
+        self.btn_proceed.isHidden = false
+        
+        guard let user = UserModel.getSharedInstance() else {
+            return
+        }
+        
+        // Alert view to allow user to be added
+        let alert = UIAlertController(title: "Proceed",
+                                      message: "Proceed as online user \"\(user.display_name)\"",
+                                      preferredStyle: .alert)
+
+        // Option in alert view to save
+        let proceedAction = UIAlertAction(title: "Proceed", style: .default) { [unowned self] action in
+            user.onlineStatus = true
+            self.performSegue(withIdentifier: "segueToSplitView", sender: self)
+        }
+
+        // Option in alert view to save
+        let signOutAction = UIAlertAction(title: "Sign this user out", style: .destructive) { action in
+            GIDSignIn.sharedInstance().signOut()
+        }
+        
+        // Option in allert view to cancel
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+
+        // Add actions to alert view
+        alert.addAction(proceedAction)
+        alert.addAction(signOutAction)
+        alert.addAction(cancelAction)
+
+        // Present alert view
+        present(alert, animated: true)
     }
     
 }

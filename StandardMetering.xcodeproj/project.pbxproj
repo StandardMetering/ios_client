@@ -22,6 +22,7 @@
 		E00E5D1920CDAD7400C478A0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E5D1820CDAD7400C478A0 /* SignInViewController.swift */; };
 		E00E5D1B20CDAF2D00C478A0 /* StandardMeteringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E5D1A20CDAF2D00C478A0 /* StandardMeteringConstants.swift */; };
 		E00E5D1D20CDB28F00C478A0 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E5D1C20CDB28F00C478A0 /* SplitViewController.swift */; };
+		E00E5D2320CDBAC200C478A0 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E5D2220CDBAC200C478A0 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		E00E5D1820CDAD7400C478A0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		E00E5D1A20CDAF2D00C478A0 /* StandardMeteringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardMeteringConstants.swift; sourceTree = "<group>"; };
 		E00E5D1C20CDB28F00C478A0 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		E00E5D2220CDBAC200C478A0 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		E83B30174F92D5785C72C6CB /* Pods-StandardMetering.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardMetering.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StandardMetering/Pods-StandardMetering.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,9 +149,11 @@
 		E00E5CE420CD9D9A00C478A0 /* StandardMetering */ = {
 			isa = PBXGroup;
 			children = (
+				E00E5CF120CD9D9B00C478A0 /* Assets.xcassets */,
+				E00E5CF620CD9D9B00C478A0 /* Info.plist */,
 				E00E5CE520CD9D9B00C478A0 /* AppDelegate.swift */,
 				E00E5D1A20CDAF2D00C478A0 /* StandardMeteringConstants.swift */,
-				E00E5D2020CDBA5A00C478A0 /* Assets */,
+				E00E5D2120CDBAA100C478A0 /* Models */,
 				E00E5D1F20CDBA3D00C478A0 /* Views */,
 				E00E5D1E20CDB9E600C478A0 /* ViewControllers */,
 			);
@@ -177,10 +181,10 @@
 		E00E5D1E20CDB9E600C478A0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E00E5CEC20CD9D9B00C478A0 /* DetailViewController.swift */,
 				E00E5D1820CDAD7400C478A0 /* SignInViewController.swift */,
 				E00E5D1C20CDB28F00C478A0 /* SplitViewController.swift */,
 				E00E5CEA20CD9D9B00C478A0 /* MasterViewController.swift */,
+				E00E5CEC20CD9D9B00C478A0 /* DetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -194,14 +198,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		E00E5D2020CDBA5A00C478A0 /* Assets */ = {
+		E00E5D2120CDBAA100C478A0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E00E5CF120CD9D9B00C478A0 /* Assets.xcassets */,
-				E00E5CF620CD9D9B00C478A0 /* Info.plist */,
 				E00E5CE720CD9D9B00C478A0 /* StandardMetering.xcdatamodeld */,
+				E00E5D2220CDBAC200C478A0 /* UserModel.swift */,
 			);
-			path = Assets;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -503,6 +506,7 @@
 			files = (
 				E00E5CE620CD9D9B00C478A0 /* AppDelegate.swift in Sources */,
 				E00E5D1D20CDB28F00C478A0 /* SplitViewController.swift in Sources */,
+				E00E5D2320CDBAC200C478A0 /* UserModel.swift in Sources */,
 				E00E5CE920CD9D9B00C478A0 /* StandardMetering.xcdatamodeld in Sources */,
 				E00E5CEB20CD9D9B00C478A0 /* MasterViewController.swift in Sources */,
 				E00E5D1B20CDAF2D00C478A0 /* StandardMeteringConstants.swift in Sources */,
