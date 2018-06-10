@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0501FBF3E581E1FBBEF366B6 /* Pods_StandardMetering.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA5AD49852163AF7788A4F54 /* Pods_StandardMetering.framework */; };
+		20398C49300F9CE57C994623 /* Pods_StandardMeteringUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702B39BC6A1997B77668A363 /* Pods_StandardMeteringUITests.framework */; };
+		74478F655771FD5755FB6B0F /* Pods_StandardMeteringTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EDDCE8E52B5AC8E7076B55 /* Pods_StandardMeteringTests.framework */; };
 		E00E5CE620CD9D9B00C478A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E5CE520CD9D9B00C478A0 /* AppDelegate.swift */; };
 		E00E5CE920CD9D9B00C478A0 /* StandardMetering.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E00E5CE720CD9D9B00C478A0 /* StandardMetering.xcdatamodeld */; };
 		E00E5CEB20CD9D9B00C478A0 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E5CEA20CD9D9B00C478A0 /* MasterViewController.swift */; };
@@ -36,6 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18EDDCE8E52B5AC8E7076B55 /* Pods_StandardMeteringTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StandardMeteringTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E0F7BF5F5B2F751BA30298A /* Pods-StandardMeteringTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardMeteringTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StandardMeteringTests/Pods-StandardMeteringTests.release.xcconfig"; sourceTree = "<group>"; };
+		6392FE9294909C7909B1617C /* Pods-StandardMeteringUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardMeteringUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StandardMeteringUITests/Pods-StandardMeteringUITests.release.xcconfig"; sourceTree = "<group>"; };
+		702B39BC6A1997B77668A363 /* Pods_StandardMeteringUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StandardMeteringUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7450BEAB76B58170CC54DD1B /* Pods-StandardMeteringTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardMeteringTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StandardMeteringTests/Pods-StandardMeteringTests.debug.xcconfig"; sourceTree = "<group>"; };
+		90CE0D8046790AF22B60CA13 /* Pods-StandardMetering.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardMetering.release.xcconfig"; path = "Pods/Target Support Files/Pods-StandardMetering/Pods-StandardMetering.release.xcconfig"; sourceTree = "<group>"; };
+		ABFD0637EC14BA71EACC0039 /* Pods-StandardMeteringUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardMeteringUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StandardMeteringUITests/Pods-StandardMeteringUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CA5AD49852163AF7788A4F54 /* Pods_StandardMetering.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StandardMetering.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E00E5CE220CD9D9A00C478A0 /* StandardMetering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StandardMetering.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E00E5CE520CD9D9B00C478A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E00E5CE820CD9D9B00C478A0 /* StandardMetering.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StandardMetering.xcdatamodel; sourceTree = "<group>"; };
@@ -51,6 +62,7 @@
 		E00E5D0620CD9D9B00C478A0 /* StandardMeteringUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StandardMeteringUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E00E5D0A20CD9D9B00C478A0 /* StandardMeteringUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardMeteringUITests.swift; sourceTree = "<group>"; };
 		E00E5D0C20CD9D9B00C478A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E83B30174F92D5785C72C6CB /* Pods-StandardMetering.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardMetering.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StandardMetering/Pods-StandardMetering.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0501FBF3E581E1FBBEF366B6 /* Pods_StandardMetering.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74478F655771FD5755FB6B0F /* Pods_StandardMeteringTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +86,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20398C49300F9CE57C994623 /* Pods_StandardMeteringUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A8BC649781BD2BC9BF6011D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E83B30174F92D5785C72C6CB /* Pods-StandardMetering.debug.xcconfig */,
+				90CE0D8046790AF22B60CA13 /* Pods-StandardMetering.release.xcconfig */,
+				7450BEAB76B58170CC54DD1B /* Pods-StandardMeteringTests.debug.xcconfig */,
+				3E0F7BF5F5B2F751BA30298A /* Pods-StandardMeteringTests.release.xcconfig */,
+				ABFD0637EC14BA71EACC0039 /* Pods-StandardMeteringUITests.debug.xcconfig */,
+				6392FE9294909C7909B1617C /* Pods-StandardMeteringUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AD1A68119E9C0B01279F0332 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA5AD49852163AF7788A4F54 /* Pods_StandardMetering.framework */,
+				18EDDCE8E52B5AC8E7076B55 /* Pods_StandardMeteringTests.framework */,
+				702B39BC6A1997B77668A363 /* Pods_StandardMeteringUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E00E5CD920CD9D9A00C478A0 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +123,8 @@
 				E00E5CFE20CD9D9B00C478A0 /* StandardMeteringTests */,
 				E00E5D0920CD9D9B00C478A0 /* StandardMeteringUITests */,
 				E00E5CE320CD9D9A00C478A0 /* Products */,
+				0A8BC649781BD2BC9BF6011D /* Pods */,
+				AD1A68119E9C0B01279F0332 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E00E5D0F20CD9D9B00C478A0 /* Build configuration list for PBXNativeTarget "StandardMetering" */;
 			buildPhases = (
+				02BB30F01B87A0A58EC229D8 /* [CP] Check Pods Manifest.lock */,
 				E00E5CDE20CD9D9A00C478A0 /* Sources */,
 				E00E5CDF20CD9D9A00C478A0 /* Frameworks */,
 				E00E5CE020CD9D9A00C478A0 /* Resources */,
+				7922F22F48CB50C513C947A1 /* [CP] Embed Pods Frameworks */,
+				F1565B870D25F72C97A8003F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,9 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E00E5D1220CD9D9B00C478A0 /* Build configuration list for PBXNativeTarget "StandardMeteringTests" */;
 			buildPhases = (
+				9F157AC3377973315230247C /* [CP] Check Pods Manifest.lock */,
 				E00E5CF720CD9D9B00C478A0 /* Sources */,
 				E00E5CF820CD9D9B00C478A0 /* Frameworks */,
 				E00E5CF920CD9D9B00C478A0 /* Resources */,
+				8F5DAE93282E4A9F561505C5 /* [CP] Embed Pods Frameworks */,
+				1922AA33FB15FFEBD8E6E591 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -173,9 +219,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E00E5D1520CD9D9B00C478A0 /* Build configuration list for PBXNativeTarget "StandardMeteringUITests" */;
 			buildPhases = (
+				48B3A22B75DC5666DD083E93 /* [CP] Check Pods Manifest.lock */,
 				E00E5D0220CD9D9B00C478A0 /* Sources */,
 				E00E5D0320CD9D9B00C478A0 /* Frameworks */,
 				E00E5D0420CD9D9B00C478A0 /* Resources */,
+				97D07330256E6AD3160274C5 /* [CP] Embed Pods Frameworks */,
+				7E1E12E3E34A788AAFC58A96 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -256,6 +305,163 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02BB30F01B87A0A58EC229D8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StandardMetering-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1922AA33FB15FFEBD8E6E591 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StandardMeteringTests/Pods-StandardMeteringTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48B3A22B75DC5666DD083E93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StandardMeteringUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7922F22F48CB50C513C947A1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-StandardMetering/Pods-StandardMetering-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StandardMetering/Pods-StandardMetering-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E1E12E3E34A788AAFC58A96 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StandardMeteringUITests/Pods-StandardMeteringUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F5DAE93282E4A9F561505C5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StandardMeteringTests/Pods-StandardMeteringTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97D07330256E6AD3160274C5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StandardMeteringUITests/Pods-StandardMeteringUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F157AC3377973315230247C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StandardMeteringTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1565B870D25F72C97A8003F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-StandardMetering/Pods-StandardMetering-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StandardMetering/Pods-StandardMetering-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E00E5CDE20CD9D9A00C478A0 /* Sources */ = {
@@ -436,6 +642,7 @@
 		};
 		E00E5D1020CD9D9B00C478A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E83B30174F92D5785C72C6CB /* Pods-StandardMetering.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -454,6 +661,7 @@
 		};
 		E00E5D1120CD9D9B00C478A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90CE0D8046790AF22B60CA13 /* Pods-StandardMetering.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -472,6 +680,7 @@
 		};
 		E00E5D1320CD9D9B00C478A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7450BEAB76B58170CC54DD1B /* Pods-StandardMeteringTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -493,6 +702,7 @@
 		};
 		E00E5D1420CD9D9B00C478A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E0F7BF5F5B2F751BA30298A /* Pods-StandardMeteringTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -514,6 +724,7 @@
 		};
 		E00E5D1620CD9D9B00C478A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABFD0637EC14BA71EACC0039 /* Pods-StandardMeteringUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -534,6 +745,7 @@
 		};
 		E00E5D1720CD9D9B00C478A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6392FE9294909C7909B1617C /* Pods-StandardMeteringUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
