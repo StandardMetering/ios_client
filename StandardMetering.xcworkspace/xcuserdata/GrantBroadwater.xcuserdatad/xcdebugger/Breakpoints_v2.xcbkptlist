@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "StandardMetering/Models/UserModel.swift"
-            timestampString = "550462626.651704"
+            filePath = "Controllers/NetworkRequest.swift"
+            timestampString = "550471811.385748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
-            landmarkName = "signIn(newUser:callback:)"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "get(url:attactchBearerToken:completionCallback:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

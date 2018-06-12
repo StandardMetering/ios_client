@@ -23,6 +23,8 @@
 		E00E5D1B20CDAF2D00C478A0 /* StandardMeteringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E5D1A20CDAF2D00C478A0 /* StandardMeteringConstants.swift */; };
 		E00E5D1D20CDB28F00C478A0 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E5D1C20CDB28F00C478A0 /* SplitViewController.swift */; };
 		E00E5D2320CDBAC200C478A0 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E5D2220CDBAC200C478A0 /* UserModel.swift */; };
+		E0C3A5A320CF749C00591135 /* StandardMeteringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3A5A220CF749C00591135 /* StandardMeteringError.swift */; };
+		E0C3A5A620CF754000591135 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3A5A520CF754000591135 /* NetworkRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		E00E5D1A20CDAF2D00C478A0 /* StandardMeteringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardMeteringConstants.swift; sourceTree = "<group>"; };
 		E00E5D1C20CDB28F00C478A0 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		E00E5D2220CDBAC200C478A0 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		E0C3A5A220CF749C00591135 /* StandardMeteringError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardMeteringError.swift; sourceTree = "<group>"; };
+		E0C3A5A520CF754000591135 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		E83B30174F92D5785C72C6CB /* Pods-StandardMetering.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardMetering.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StandardMetering/Pods-StandardMetering.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				E00E5CE420CD9D9A00C478A0 /* StandardMetering */,
+				E0C3A5A420CF752700591135 /* Controllers */,
 				E00E5CFE20CD9D9B00C478A0 /* StandardMeteringTests */,
 				E00E5D0920CD9D9B00C478A0 /* StandardMeteringUITests */,
 				E00E5CE320CD9D9A00C478A0 /* Products */,
@@ -203,8 +208,17 @@
 			children = (
 				E00E5CE720CD9D9B00C478A0 /* StandardMetering.xcdatamodeld */,
 				E00E5D2220CDBAC200C478A0 /* UserModel.swift */,
+				E0C3A5A220CF749C00591135 /* StandardMeteringError.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E0C3A5A420CF752700591135 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E0C3A5A520CF754000591135 /* NetworkRequest.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,9 +522,11 @@
 				E00E5D1D20CDB28F00C478A0 /* SplitViewController.swift in Sources */,
 				E00E5D2320CDBAC200C478A0 /* UserModel.swift in Sources */,
 				E00E5CE920CD9D9B00C478A0 /* StandardMetering.xcdatamodeld in Sources */,
+				E0C3A5A620CF754000591135 /* NetworkRequest.swift in Sources */,
 				E00E5CEB20CD9D9B00C478A0 /* MasterViewController.swift in Sources */,
 				E00E5D1B20CDAF2D00C478A0 /* StandardMeteringConstants.swift in Sources */,
 				E00E5D1920CDAD7400C478A0 /* SignInViewController.swift in Sources */,
+				E0C3A5A320CF749C00591135 /* StandardMeteringError.swift in Sources */,
 				E00E5CED20CD9D9B00C478A0 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -100,15 +100,24 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
             return;
         }
         
-        UserModel.signIn(newUser: user) { error in
+        UserModel.signIn(newUser: user) { error, data  in
             
             if let error = error {
-                print( "Error: \(error.localizedDescription)" )
+                print( "Error: \(error.message)" )
+                self.stopProcess(forReason: error.message)
+                
+                if error.code == StandardMeteringError.Code.tokenDoesNotMatchAnyUser {
+                    GIDSignIn.sharedInstance().signOut()
+                }
                 return;
             }
             
+            guard let data = data as? UserInfo else {
+                fatalError("Neither data nor error")
+            }
+            
             print("New User: \(UserModel.getSharedInstance()!)")
-            self.stopProcess(forReason: "Proceed locally or proceed online.")
+            self.stopProcess(forReason: "\(data.display_name): Proceed local only or proceed online.")
             self.btn_proceed.isHidden = false
             
             guard let user = UserModel.getSharedInstance() else {
