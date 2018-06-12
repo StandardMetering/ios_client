@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "StandardMetering/ViewControllers/MasterViewController.swift"
-            timestampString = "550365518.701753"
+            filePath = "StandardMetering/Models/UserModel.swift"
+            timestampString = "550462626.651704"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
+            landmarkName = "signIn(newUser:callback:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -100,40 +100,50 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
             return;
         }
         
-        UserModel.signIn(newUser: user)
-        self.stopProcess(forReason: "Proceed locally or proceed online.")
-        self.btn_proceed.isHidden = false
-        
-        guard let user = UserModel.getSharedInstance() else {
-            return
+        UserModel.signIn(newUser: user) { error in
+            
+            if let error = error {
+                print( "Error: \(error.localizedDescription)" )
+                return;
+            }
+            
+            print("New User: \(UserModel.getSharedInstance()!)")
+            self.stopProcess(forReason: "Proceed locally or proceed online.")
+            self.btn_proceed.isHidden = false
+            
+            guard let user = UserModel.getSharedInstance() else {
+                return
+            }
+            
+            // Alert view to allow user to be added
+            let alert = UIAlertController(title: "Proceed",
+                                          message: "Proceed as online user \"\(user.display_name)\"",
+                preferredStyle: .alert)
+            
+            // Option in alert view to save
+            let proceedAction = UIAlertAction(title: "Proceed", style: .default) { [unowned self] action in
+                user.onlineStatus = true
+                self.performSegue(withIdentifier: "segueToSplitView", sender: self)
+            }
+            
+            // Option in alert view to save
+            let signOutAction = UIAlertAction(title: "Sign this user out", style: .destructive) { action in
+                GIDSignIn.sharedInstance().signOut()
+            }
+            
+            // Option in allert view to cancel
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+            
+            // Add actions to alert view
+            alert.addAction(proceedAction)
+            alert.addAction(signOutAction)
+            alert.addAction(cancelAction)
+            
+            // Present alert view
+            self.present(alert, animated: true)
+        }
+            
         }
         
-        // Alert view to allow user to be added
-        let alert = UIAlertController(title: "Proceed",
-                                      message: "Proceed as online user \"\(user.display_name)\"",
-                                      preferredStyle: .alert)
-
-        // Option in alert view to save
-        let proceedAction = UIAlertAction(title: "Proceed", style: .default) { [unowned self] action in
-            user.onlineStatus = true
-            self.performSegue(withIdentifier: "segueToSplitView", sender: self)
-        }
-
-        // Option in alert view to save
-        let signOutAction = UIAlertAction(title: "Sign this user out", style: .destructive) { action in
-            GIDSignIn.sharedInstance().signOut()
-        }
-        
-        // Option in allert view to cancel
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
-
-        // Add actions to alert view
-        alert.addAction(proceedAction)
-        alert.addAction(signOutAction)
-        alert.addAction(cancelAction)
-
-        // Present alert view
-        present(alert, animated: true)
-    }
     
 }
