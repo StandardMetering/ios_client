@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleSignIn
+import LocalAuthentication
 
 class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     
@@ -71,8 +72,32 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
             return
         }
         
-        user.onlineStatus = false
-        performSegue(withIdentifier: "segueToSplitView", sender: self)
+        let context = LAContext()
+        
+        var error: NSError? = nil
+        guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
+            fatalError(error!.localizedDescription)
+        }
+        
+        context.localizedCancelTitle = "Cancel"
+        context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Sign In to Proceed") { success, error in
+            
+            if success {
+
+                // Move to the main thread because a state update triggers UI changes.
+                DispatchQueue.main.async { [unowned self] in
+                    user.onlineStatus = false
+                    self.performSegue(withIdentifier: "segueToSplitView", sender: self)
+                }
+                
+            } else {
+                DispatchQueue.main.async { [unowned self] in
+                    print(error?.localizedDescription ?? "Failed to authenticate")
+                    self.stopProcess(forReason: "Failed to authenticate.")
+                    self.btn_proceed.isHidden = false
+                }
+            }
+        }
     }
     
     // MARK: - Segue
