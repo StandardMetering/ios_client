@@ -11,9 +11,11 @@ import CoreData
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
+    
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,13 +36,43 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         self.title = user.display_name
     }
 
+    
     override func viewWillAppear(_ animated: Bool) {
         
-        clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
+        if let split = splitViewController {
+            let controllers = split.viewControllers
+            clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
+            if let detailVC = controllers[controllers.count-1] as? UINavigationController {
+                
+                clearsSelectionOnViewWillAppear = split.isCollapsed
+                
+                if #available(iOS 11.0, *) {
+                    detailVC.navigationBar.prefersLargeTitles = false
+                }
+            }
+        }
         
         super.viewWillAppear(animated)
     }
 
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        if let split = splitViewController {
+            let controllers = split.viewControllers
+            clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
+            if let detailVC = controllers[controllers.count-1] as? UINavigationController {
+                
+                if #available(iOS 11.0, *) {
+                    detailVC.navigationBar.prefersLargeTitles = true
+                }
+            }
+        }
+        
+        super.viewWillDisappear(animated)
+    }
+    
+    
     @objc
     func insertNewObject(_ sender: Any) {
         let context = self.fetchedResultsController.managedObjectContext
