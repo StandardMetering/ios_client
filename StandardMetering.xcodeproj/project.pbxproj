@@ -23,8 +23,10 @@
 		E00E5D1B20CDAF2D00C478A0 /* StandardMeteringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E5D1A20CDAF2D00C478A0 /* StandardMeteringConstants.swift */; };
 		E00E5D1D20CDB28F00C478A0 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E5D1C20CDB28F00C478A0 /* SplitViewController.swift */; };
 		E00E5D2320CDBAC200C478A0 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E5D2220CDBAC200C478A0 /* UserModel.swift */; };
+		E04E55D520D1F7B5006D673E /* CreateNewInstallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E55D420D1F7B5006D673E /* CreateNewInstallViewController.swift */; };
 		E06F3CC720D0ADD600AE5ED7 /* MasterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F3CC620D0ADD600AE5ED7 /* MasterViewModel.swift */; };
 		E06F3CC920D0B86B00AE5ED7 /* InstallCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F3CC820D0B86B00AE5ED7 /* InstallCellViewModel.swift */; };
+		E07A20BD20D1E92900CDCC11 /* SyncActionsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07A20BC20D1E92900CDCC11 /* SyncActionsCellModel.swift */; };
 		E0C3A5A320CF749C00591135 /* StandardMeteringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3A5A220CF749C00591135 /* StandardMeteringError.swift */; };
 		E0C3A5A620CF754000591135 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3A5A520CF754000591135 /* NetworkRequest.swift */; };
 /* End PBXBuildFile section */
@@ -74,8 +76,10 @@
 		E00E5D1A20CDAF2D00C478A0 /* StandardMeteringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardMeteringConstants.swift; sourceTree = "<group>"; };
 		E00E5D1C20CDB28F00C478A0 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		E00E5D2220CDBAC200C478A0 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		E04E55D420D1F7B5006D673E /* CreateNewInstallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewInstallViewController.swift; sourceTree = "<group>"; };
 		E06F3CC620D0ADD600AE5ED7 /* MasterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewModel.swift; sourceTree = "<group>"; };
 		E06F3CC820D0B86B00AE5ED7 /* InstallCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallCellViewModel.swift; sourceTree = "<group>"; };
+		E07A20BC20D1E92900CDCC11 /* SyncActionsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncActionsCellModel.swift; sourceTree = "<group>"; };
 		E0C3A5A220CF749C00591135 /* StandardMeteringError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardMeteringError.swift; sourceTree = "<group>"; };
 		E0C3A5A520CF754000591135 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		E83B30174F92D5785C72C6CB /* Pods-StandardMetering.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardMetering.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StandardMetering/Pods-StandardMetering.debug.xcconfig"; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 				E00E5D1C20CDB28F00C478A0 /* SplitViewController.swift */,
 				E00E5CEA20CD9D9B00C478A0 /* MasterViewController.swift */,
 				E00E5CEC20CD9D9B00C478A0 /* DetailViewController.swift */,
+				E04E55D420D1F7B5006D673E /* CreateNewInstallViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 			children = (
 				E06F3CC620D0ADD600AE5ED7 /* MasterViewModel.swift */,
 				E06F3CC820D0B86B00AE5ED7 /* InstallCellViewModel.swift */,
+				E07A20BC20D1E92900CDCC11 /* SyncActionsCellModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -537,7 +543,9 @@
 				E00E5D2320CDBAC200C478A0 /* UserModel.swift in Sources */,
 				E00E5CE920CD9D9B00C478A0 /* StandardMetering.xcdatamodeld in Sources */,
 				E0C3A5A620CF754000591135 /* NetworkRequest.swift in Sources */,
+				E04E55D520D1F7B5006D673E /* CreateNewInstallViewController.swift in Sources */,
 				E00E5CEB20CD9D9B00C478A0 /* MasterViewController.swift in Sources */,
+				E07A20BD20D1E92900CDCC11 /* SyncActionsCellModel.swift in Sources */,
 				E00E5D1B20CDAF2D00C478A0 /* StandardMeteringConstants.swift in Sources */,
 				E06F3CC720D0ADD600AE5ED7 /* MasterViewModel.swift in Sources */,
 				E06F3CC920D0B86B00AE5ED7 /* InstallCellViewModel.swift in Sources */,

@@ -26,6 +26,7 @@ let completeInstallItem = TableSectionItem(title: "Complete Installs", index: 2)
 let profileActionsItem = TableSectionItem(title: "Profile Actions", index: 3)
 
 let tableSectionTitles = [
+    syncActionItem,
     incompleteInstallItem,
     completeInstallItem,
     profileActionsItem
@@ -66,6 +67,8 @@ class MasterViewModel: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
+        case syncActionItem.index:
+            return 1
         case incompleteInstallItem.index:
             return self.incompleteInstalls.count + 1
         case completeInstallItem.index:
@@ -77,17 +80,32 @@ class MasterViewModel: NSObject, UITableViewDataSource {
         }
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.masterViewController.tableView.dequeueReusableCell(withIdentifier: "InstallCellViewModel") as! InstallCellViewModel
         
-        initCell(cell)
-        configureCell(cell, atIndexPath: indexPath)
+        switch indexPath.section {
+        case syncActionItem.index:
+            let cell = self.masterViewController.tableView.dequeueReusableCell(withIdentifier: "SyncActionsCellModel") as! SyncActionsCellModel
         
-        return cell
+            cell.backgroundColor = .clear
+            
+            return cell
+        default:
+            let cell = self.masterViewController.tableView.dequeueReusableCell(withIdentifier: "InstallCellViewModel") as! InstallCellViewModel
+            
+            initCell(cell)
+            configureCell(cell, atIndexPath: indexPath)
+            
+            return cell
+        }
+        
+        
     }
     
     func initCell(_ cell: InstallCellViewModel ) {
+//
+//        cell.layer.borderWidth = 1.0
+//        cell.layer.borderColor = UIColor.lightGray.cgColor
+        
         cell.lbl_installNumber.isHidden = false
         cell.lbl_installNumber.textColor = .black
         

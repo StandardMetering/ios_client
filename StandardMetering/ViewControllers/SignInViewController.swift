@@ -130,6 +130,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
             if let error = error {
                 print( "Error: \(error.message)" )
                 self.stopProcess(forReason: error.message)
+                self.btn_proceed.isHidden = false
                 
                 if error.code == StandardMeteringError.Code.tokenDoesNotMatchAnyUser {
                     GIDSignIn.sharedInstance().signOut()

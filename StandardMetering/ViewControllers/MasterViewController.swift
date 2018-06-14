@@ -107,30 +107,45 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     // MARK: - Segues
 
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let controller = (segue.destination as! UINavigationController).topViewController
+        controller?.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        controller?.navigationItem.leftItemsSupplementBackButton = true
+        
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-            let object = fetchedResultsController.object(at: indexPath)
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
-                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
+                let detailController = controller as! DetailViewController
+                let object = fetchedResultsController.object(at: indexPath)
+                detailController.detailItem = object
             }
         }
     }
 
     // MARK: - Table View
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+        switch indexPath.section {
+        case incompleteInstallItem.index:
+            
+            if indexPath.row == 0 {
+                performSegue(withIdentifier: "segueToCreateNewInstall", sender: self)
+            }
+            
+            break;
+        default:
+            break;
+        }
+    }
+    
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let context = fetchedResultsController.managedObjectContext
-            context.delete(fetchedResultsController.object(at: indexPath))
-                
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
+            
         }
     }
     

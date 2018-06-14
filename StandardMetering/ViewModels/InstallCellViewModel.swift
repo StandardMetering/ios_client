@@ -31,19 +31,4 @@ class InstallCellViewModel: UITableViewCell {
             }
         }
     }
-    
-    func updateUI() {
-        
-        if let installNumber = self.installNumber {
-            self.lbl_installNumber.text = "# \(installNumber)"
-        } else {
-            self.lbl_installNumber.text = "Nil"
-        }
-        
-        if let syncStatus = self.syncStatus {
-            self.lbl_syncStatus.text = "# \(syncStatus)"
-        } else {
-            self.lbl_syncStatus.text = "Nil"
-        }
-    }
 }
