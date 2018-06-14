@@ -23,6 +23,8 @@
 		E00E5D1B20CDAF2D00C478A0 /* StandardMeteringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E5D1A20CDAF2D00C478A0 /* StandardMeteringConstants.swift */; };
 		E00E5D1D20CDB28F00C478A0 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E5D1C20CDB28F00C478A0 /* SplitViewController.swift */; };
 		E00E5D2320CDBAC200C478A0 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E5D2220CDBAC200C478A0 /* UserModel.swift */; };
+		E06F3CC720D0ADD600AE5ED7 /* MasterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F3CC620D0ADD600AE5ED7 /* MasterViewModel.swift */; };
+		E06F3CC920D0B86B00AE5ED7 /* InstallCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F3CC820D0B86B00AE5ED7 /* InstallCellViewModel.swift */; };
 		E0C3A5A320CF749C00591135 /* StandardMeteringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3A5A220CF749C00591135 /* StandardMeteringError.swift */; };
 		E0C3A5A620CF754000591135 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3A5A520CF754000591135 /* NetworkRequest.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +74,8 @@
 		E00E5D1A20CDAF2D00C478A0 /* StandardMeteringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardMeteringConstants.swift; sourceTree = "<group>"; };
 		E00E5D1C20CDB28F00C478A0 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		E00E5D2220CDBAC200C478A0 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		E06F3CC620D0ADD600AE5ED7 /* MasterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewModel.swift; sourceTree = "<group>"; };
+		E06F3CC820D0B86B00AE5ED7 /* InstallCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallCellViewModel.swift; sourceTree = "<group>"; };
 		E0C3A5A220CF749C00591135 /* StandardMeteringError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardMeteringError.swift; sourceTree = "<group>"; };
 		E0C3A5A520CF754000591135 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		E83B30174F92D5785C72C6CB /* Pods-StandardMetering.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardMetering.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StandardMetering/Pods-StandardMetering.debug.xcconfig"; sourceTree = "<group>"; };
@@ -158,8 +162,9 @@
 				E00E5CF620CD9D9B00C478A0 /* Info.plist */,
 				E00E5CE520CD9D9B00C478A0 /* AppDelegate.swift */,
 				E00E5D1A20CDAF2D00C478A0 /* StandardMeteringConstants.swift */,
-				E00E5D2120CDBAA100C478A0 /* Models */,
 				E00E5D1F20CDBA3D00C478A0 /* Views */,
+				E00E5D2120CDBAA100C478A0 /* Models */,
+				E06F3CC520D0ADBE00AE5ED7 /* ViewModels */,
 				E00E5D1E20CDB9E600C478A0 /* ViewControllers */,
 			);
 			path = StandardMetering;
@@ -211,6 +216,15 @@
 				E0C3A5A220CF749C00591135 /* StandardMeteringError.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E06F3CC520D0ADBE00AE5ED7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E06F3CC620D0ADD600AE5ED7 /* MasterViewModel.swift */,
+				E06F3CC820D0B86B00AE5ED7 /* InstallCellViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		E0C3A5A420CF752700591135 /* Controllers */ = {
@@ -525,6 +539,8 @@
 				E0C3A5A620CF754000591135 /* NetworkRequest.swift in Sources */,
 				E00E5CEB20CD9D9B00C478A0 /* MasterViewController.swift in Sources */,
 				E00E5D1B20CDAF2D00C478A0 /* StandardMeteringConstants.swift in Sources */,
+				E06F3CC720D0ADD600AE5ED7 /* MasterViewModel.swift in Sources */,
+				E06F3CC920D0B86B00AE5ED7 /* InstallCellViewModel.swift in Sources */,
 				E00E5D1920CDAD7400C478A0 /* SignInViewController.swift in Sources */,
 				E0C3A5A320CF749C00591135 /* StandardMeteringError.swift in Sources */,
 				E00E5CED20CD9D9B00C478A0 /* DetailViewController.swift in Sources */,

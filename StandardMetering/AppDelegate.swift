@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        // Display launch screen
+        Thread.sleep(forTimeInterval: 1.8)
+        
         // Initialize sign-in
         GIDSignIn.sharedInstance().clientID = "438678561117-1ve98ie1ob3ogvmcr8dqtt8ke66boc3c.apps.googleusercontent.com"
         

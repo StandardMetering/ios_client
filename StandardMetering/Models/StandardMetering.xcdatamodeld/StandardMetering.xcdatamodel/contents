@@ -6,6 +6,10 @@
         </attribute>
         <userInfo/>
     </entity>
+    <entity name="InstallEntity" representedClassName="InstallEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="able_to_complete" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="install_num" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="UserEntity" representedClassName="UserEntity" syncable="YES" codeGenerationType="class">
         <attribute name="admin_rights" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="dev" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -16,5 +20,6 @@
     <elements>
         <element name="Event" positionX="261" positionY="189" width="128" height="60"/>
         <element name="UserEntity" positionX="270" positionY="207" width="128" height="120"/>
+        <element name="InstallEntity" positionX="270" positionY="234" width="128" height="75"/>
     </elements>
 </model>

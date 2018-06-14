@@ -3,43 +3,43 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "Meter40x40-1.png",
+      "filename" : "meter40.png",
       "scale" : "2x"
     },
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "Meter60x60.png",
+      "filename" : "meter60.png",
       "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "Meter58x58.png",
+      "filename" : "meter58.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "Meter87x87.png",
+      "filename" : "meter87.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Meter80x80.png",
+      "filename" : "meter80.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Meter120x120.png",
+      "filename" : "meter120.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Meter120x120-1.png",
+      "filename" : "meter120-1.png",
       "scale" : "2x"
     },
     {
@@ -51,55 +51,55 @@
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "Meter20x20.png",
+      "filename" : "meter20.png",
       "scale" : "1x"
     },
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "Meter40x40.png",
+      "filename" : "meter40-1.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "Meter29x29.png",
+      "filename" : "meter29.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "Meter58x58-1.png",
+      "filename" : "meter58-1.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "Meter40x40-2.png",
+      "filename" : "meter40-2.png",
       "scale" : "1x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "Meter80x80-1.png",
+      "filename" : "meter80-1.png",
       "scale" : "2x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "Meter76x76.png",
+      "filename" : "meter76.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "Meter152x152.png",
+      "filename" : "meter152.png",
       "scale" : "2x"
     },
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "Meter167x167.png",
+      "filename" : "meter167.png",
       "scale" : "2x"
     },
     {
