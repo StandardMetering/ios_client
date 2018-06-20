@@ -10,4 +10,12 @@ import UIKit
 
 class SyncActionsCellModel: UITableViewCell {
 
+    @IBAction func fetchButtonPressed() {
+        print("Fetch")
+    }
+    
+    @IBAction func syncButtonPressed() {
+        print("Sync")
+    }
+    
 }

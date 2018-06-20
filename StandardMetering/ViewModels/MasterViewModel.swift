@@ -137,78 +137,86 @@ class MasterViewModel: NSObject, UITableViewDataSource {
     //
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        // Branch based on section
         switch indexPath.section {
-        case syncActionItem.index:
-            let cell = self.masterViewController.tableView.dequeueReusableCell(withIdentifier: "SyncActionsCellModel") as! SyncActionsCellModel
-        
-            cell.backgroundColor = .clear
             
-            return cell
-        default:
-            let cell = self.masterViewController.tableView.dequeueReusableCell(withIdentifier: "InstallCellViewModel") as! InstallCellViewModel
-            
-            initCell(cell)
-            configureInstallCell(cell, atIndexPath: indexPath)
-            
-            return cell
-        }
-        
-        
-    }
-    
-    
-    //
-    // Description:
-    //   Utility function meant to initialize cell to standard state before manipulating
-    //
-    func initCell(_ cell: InstallCellViewModel ) {
-        
-        cell.lbl_installNumber.isHidden = false
-        cell.lbl_installNumber.textColor = .black
-        
-        cell.lbl_syncStatus.isHidden = false
-        cell.lbl_syncStatus.textColor = .black
-    }
-    
-    
-    //
-    // Description:
-    //   Configure given install cell to display correct information
-    //
-    func configureInstallCell(_ cell: InstallCellViewModel, atIndexPath indexPath: IndexPath) {
-        
-        switch indexPath.section {
-        case incompleteInstallItem.index:
-
-            if indexPath.row == 0 {
+            // Sync Buttons section
+            case syncActionItem.index:
                 
-                cell.lbl_installNumber.text = "Begin New Install"
-                cell.lbl_syncStatus.isHidden = true
+                // Return sync buttons cell
+                let cell = self.masterViewController.tableView.dequeueReusableCell(
+                    withIdentifier: "SyncActionsCellModel",
+                    for: indexPath
+                ) as! SyncActionsCellModel
                 
-            } else {
+                cell.backgroundColor = .clear
+                return cell
+            
+            // Incomplete Intstalls Section
+            case incompleteInstallItem.index:
                 
-                cell.installNumber = String(indexPath.row - 1)
-                cell.syncStatus = "Sync !"
-                cell.lbl_syncStatus.textColor = .red
+                // If first row
+                if indexPath.row == 0 {
+                    
+                    // Get a basic cell
+                    let cell = self.masterViewController.tableView.dequeueReusableCell(
+                        withIdentifier: "BasicCell",
+                        for: indexPath
+                    )
+                    
+                    // Set the label
+                    cell.textLabel!.text = "Create New Install"
+                    return cell;
+                    
+                } else { // If install cell
+                    
+                    // Get install cell
+                    let cell = self.masterViewController.tableView.dequeueReusableCell(
+                        withIdentifier: "InstallCellViewModel",
+                        for: indexPath
+                    ) as! InstallCellViewModel
+                    
+                    // Populate cell
+                    cell.install = self.incompleteInstalls[ indexPath.row - 1 ]
+                    return cell;
+                    
+                }
+            
+            // Complete Installs section
+            case completeInstallItem.index:
+            
+                // Get install cell
+                let cell = self.masterViewController.tableView.dequeueReusableCell(
+                    withIdentifier: "InstallCellViewModel",
+                    for: indexPath
+                ) as! InstallCellViewModel
                 
-            }
+                // Populate cell
+                cell.install = self.completeInstalls[ indexPath.row ]
+                return cell;
             
-            break
-        case completeInstallItem.index:
+            case profileActionsItem.index:
             
-            cell.installNumber = String(indexPath.row)
-            cell.syncStatus = "Sync ✓"
-            cell.lbl_syncStatus.textColor = forrestGreenColor
+                // Get a basic cell
+                let cell = self.masterViewController.tableView.dequeueReusableCell(
+                    withIdentifier: "BasicCell",
+                    for: indexPath
+                )
+                
+                // Set the label
+                cell.textLabel!.text = profileActions[ indexPath.row ]
+                return cell;
             
-            break
-        case profileActionsItem.index:
             
-            cell.lbl_installNumber.text = self.profileActions[ indexPath.row ]
-            cell.lbl_syncStatus.isHidden = true
-            
-            break
-        default:
-            break
+            default:
+                
+                // Populate with error cell
+                let cell = self.masterViewController.tableView.dequeueReusableCell(
+                    withIdentifier: "BasicCell",
+                    for: indexPath
+                )
+                cell.textLabel!.text = "Unconfigured Cell"
+                return cell
         }
     }
 

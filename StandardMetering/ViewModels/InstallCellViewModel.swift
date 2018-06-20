@@ -16,11 +16,6 @@ class InstallCellViewModel: UITableViewCell {
     // -----------------------------------------------------------------------------------------------------------------
     
     
-    @IBOutlet weak var lbl_installNumber: UILabel!
-    @IBOutlet weak var lbl_syncStatus: UILabel!
-    
-    // MARK: Computed Variables
-    
     // Used to set the install number safely
     var installNumber: String? {
         didSet {
@@ -42,6 +37,41 @@ class InstallCellViewModel: UITableViewCell {
             }
         }
     }
+    
+    @IBOutlet weak var lbl_installNumber: UILabel!
+    @IBOutlet weak var lbl_syncStatus: UILabel!
+    
+    var install: InstallEntity? {
+        didSet {
+            
+            // Ensure install was not set to nil
+            guard let install = install else {
+                
+                self.lbl_installNumber!.textColor = .black
+                self.lbl_installNumber!.text = "Nil"
+                
+                self.lbl_syncStatus!.textColor = .black
+                self.lbl_syncStatus!.text = "Nil"
+                
+                return;
+            }
+            
+            // Set install number label
+            if let installNum = install.install_num {
+                self.lbl_installNumber!.text = "Install #\(installNum)"
+            }
+            
+            // Set sync status
+            if install.sync_status {
+                self.lbl_syncStatus!.textColor = .forrestGreen
+                self.lbl_syncStatus!.text = "Sync ✓"
+            } else {
+                self.lbl_syncStatus!.textColor = .red
+                self.lbl_syncStatus!.text = "Sync !"
+            }
+        }
+    }
+    
     
     
 }

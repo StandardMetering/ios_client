@@ -11,6 +11,9 @@ import UIKit
 class SplitViewController: UISplitViewController {
 
     
+    var collapseDetailViewController: Bool = true
+    
+    
     // -----------------------------------------------------------------------------------------------------------------
     // MARK: - Application Lifecycle
     // -----------------------------------------------------------------------------------------------------------------
@@ -39,5 +42,16 @@ class SplitViewController: UISplitViewController {
             fatalError("Unresolved error: Unable to load application delegate.")
         }
     }
-
+    
+    
+    //
+    // Description:
+    //   Determines if the master view controller should be collapsed.
+    //
+    func splitViewController(_ splitViewController: UISplitViewController,
+                             collapseSecondary secondaryViewController: UIViewController,
+                             onto primaryViewController: UIViewController) -> Bool {
+        
+        return self.collapseDetailViewController
+    }
 }

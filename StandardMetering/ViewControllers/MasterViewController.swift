@@ -183,6 +183,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     //
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        // Indicate detail should not collapse
+        if let splitVC = self.splitViewController as? SplitViewController {
+            splitVC.collapseDetailViewController = false
+        }
+        
         // Set display mode button as back button
         let controller = (segue.destination as! UINavigationController).topViewController
         controller?.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
