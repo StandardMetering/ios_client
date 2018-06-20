@@ -10,21 +10,47 @@ import Foundation
 import UIKit
 import CoreData
 
+//
+// Description:
+//   Used to compartmentaize data for each table section.
+//
 class TableSectionItem {
+    
+    
+    // -----------------------------------------------------------------------------------------------------------------
+    // MARK: - Member Variables
+    // -----------------------------------------------------------------------------------------------------------------
+    
+    
     var title: String
     var index: Int
     
+    
+    // -----------------------------------------------------------------------------------------------------------------
+    // MARK: - Initialization
+    // -----------------------------------------------------------------------------------------------------------------
+    
+    
+    //
+    // Description:
+    //   Sets relevant fields
+    //
     init(title: String, index: Int) {
         self.title = title
         self.index = index
     }
 }
 
+// -----------------------------------------------------------------------------------------------------------------
+// MARK: - Global Constants
+// -----------------------------------------------------------------------------------------------------------------
+
 let syncActionItem = TableSectionItem(title: "", index: 0)
 let incompleteInstallItem = TableSectionItem(title: "Incomplete Installs", index: 1)
 let completeInstallItem = TableSectionItem(title: "Complete Installs", index: 2)
 let profileActionsItem = TableSectionItem(title: "Profile Actions", index: 3)
 
+// TODO: Github issue #5
 let tableSectionTitles = [
     syncActionItem,
     incompleteInstallItem,
@@ -35,14 +61,26 @@ let tableSectionTitles = [
 
 class MasterViewModel: NSObject, UITableViewDataSource {
     
+    
+    // -----------------------------------------------------------------------------------------------------------------
+    // MARK: - Member Variables
+    // -----------------------------------------------------------------------------------------------------------------
+    
+    
     private let masterViewController: MasterViewController
     
     private var completeInstalls = [InstallEntity?]()
     private var incompleteInstalls = [InstallEntity?]()
     private let profileActions = [
+        "Manage Users", // TODO: Admin Only
         "Sign Out"
     ]
     
+    
+    //
+    // Description:
+    //   Intialize module
+    //
     init(master masterViewController: MasterViewController) {
         self.masterViewController = masterViewController
         
@@ -55,16 +93,28 @@ class MasterViewModel: NSObject, UITableViewDataSource {
     }
     
     
+    //
+    // Description:
+    //   Return the number of sections in the table view
+    //
     func numberOfSections(in tableView: UITableView) -> Int {
         return tableSectionTitles.count
     }
     
     
+    //
+    // Description:
+    //   Returns the title text of each section
+    //
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return tableSectionTitles[ section ].title
     }
     
     
+    //
+    // Description:
+    //   Returns the number of cells in a given table view section
+    //
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case syncActionItem.index:
@@ -80,6 +130,11 @@ class MasterViewModel: NSObject, UITableViewDataSource {
         }
     }
     
+    
+    //
+    // Description:
+    //   Returns a cell for a given index path
+    //
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.section {
@@ -93,7 +148,7 @@ class MasterViewModel: NSObject, UITableViewDataSource {
             let cell = self.masterViewController.tableView.dequeueReusableCell(withIdentifier: "InstallCellViewModel") as! InstallCellViewModel
             
             initCell(cell)
-            configureCell(cell, atIndexPath: indexPath)
+            configureInstallCell(cell, atIndexPath: indexPath)
             
             return cell
         }
@@ -101,10 +156,12 @@ class MasterViewModel: NSObject, UITableViewDataSource {
         
     }
     
+    
+    //
+    // Description:
+    //   Utility function meant to initialize cell to standard state before manipulating
+    //
     func initCell(_ cell: InstallCellViewModel ) {
-//
-//        cell.layer.borderWidth = 1.0
-//        cell.layer.borderColor = UIColor.lightGray.cgColor
         
         cell.lbl_installNumber.isHidden = false
         cell.lbl_installNumber.textColor = .black
@@ -113,7 +170,12 @@ class MasterViewModel: NSObject, UITableViewDataSource {
         cell.lbl_syncStatus.textColor = .black
     }
     
-    func configureCell(_ cell: InstallCellViewModel, atIndexPath indexPath: IndexPath) {
+    
+    //
+    // Description:
+    //   Configure given install cell to display correct information
+    //
+    func configureInstallCell(_ cell: InstallCellViewModel, atIndexPath indexPath: IndexPath) {
         
         switch indexPath.section {
         case incompleteInstallItem.index:
@@ -151,8 +213,12 @@ class MasterViewModel: NSObject, UITableViewDataSource {
     }
 
     
+    //
+    // Description:
+    //   Tells table view if user should be allowed to have an "edit" option for a given index path
+    //
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        return false
     }
     
 }

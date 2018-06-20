@@ -10,9 +10,18 @@ import UIKit
 
 class InstallCellViewModel: UITableViewCell {
     
+    
+    // -----------------------------------------------------------------------------------------------------------------
+    // MARK: - Member Variables
+    // -----------------------------------------------------------------------------------------------------------------
+    
+    
     @IBOutlet weak var lbl_installNumber: UILabel!
     @IBOutlet weak var lbl_syncStatus: UILabel!
-
+    
+    // MARK: Computed Variables
+    
+    // Used to set the install number safely
     var installNumber: String? {
         didSet {
             if let installNumber = installNumber {
@@ -22,6 +31,8 @@ class InstallCellViewModel: UITableViewCell {
             }
         }
     }
+    
+    // Used to set the sync status safely
     var syncStatus: String? {
         didSet {
             if let syncStatus = syncStatus {
@@ -31,4 +42,6 @@ class InstallCellViewModel: UITableViewCell {
             }
         }
     }
+    
+    
 }

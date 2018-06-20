@@ -15,6 +15,10 @@ extension NSNotification.Name {
     public static let UserModelDidUpdate = NSNotification.Name("UserModelDidUpdate");
 }
 
+//
+// Description:
+//   Manages the stored user object in the persistent store
+//
 fileprivate class UserModelManager: NSObject, NSFetchedResultsControllerDelegate {
 
     fileprivate var managedObjectContext: NSManagedObjectContext
@@ -27,6 +31,10 @@ fileprivate class UserModelManager: NSObject, NSFetchedResultsControllerDelegate
         }
     }
     
+    //
+    // Description:
+    //   Initialize module.
+    //
     fileprivate override init() {
         
         // Reference application delegate
@@ -42,6 +50,11 @@ fileprivate class UserModelManager: NSObject, NSFetchedResultsControllerDelegate
         self.getStoredUser()
     }
     
+    
+    //
+    // Description:
+    //   Gets a user object from persistent context, if one exists.
+    //
     func getStoredUser() {
         
         
@@ -72,6 +85,10 @@ fileprivate class UserModelManager: NSObject, NSFetchedResultsControllerDelegate
     }
     
     
+    //
+    // Description:
+    //   Replaces the existing saved user with a new one.
+    //
     func replaceUserEntity(withNewUser user: UserInfo) {
         
         let context = self.managedObjectContext
@@ -112,6 +129,10 @@ fileprivate class UserModelManager: NSObject, NSFetchedResultsControllerDelegate
     }
 }
 
+//
+// Description:
+//   Used as an interface to indicate an object contains all fields relevent to a user
+//
 protocol UserInfo {
     var google_id: String { get set }
     var display_name: String { get set }
@@ -120,6 +141,11 @@ protocol UserInfo {
     var dev: Bool { get set }
 }
 
+
+//
+// Description:
+//   Public interface for managing the signed in user
+//
 class UserModel: CustomStringConvertible {
     
     var description: String {
@@ -150,17 +176,34 @@ class UserModel: CustomStringConvertible {
         return self.userEntity.dev
     }
     
-    // MARK: - Static functionality
+    // -----------------------------------------------------------------------------------------------------------------
+    // MARK: - Static Functionality
+    // -----------------------------------------------------------------------------------------------------------------
+    
     fileprivate static var manager: UserModelManager!
     
+    //
+    // Description:
+    //   Initialize module.
+    //
     static func initModule() {
         self.manager = UserModelManager()
     }
     
+    
+    //
+    // Description:
+    //   Get the user instance common accross the whole app
+    //
     static func getSharedInstance() -> UserModel? {
         return manager.userModel
     }
     
+    
+    //
+    // Description:
+    //   authenticate a google user with back end
+    //
     static func signIn(newUser user: GIDGoogleUser, callback: @escaping (StandardMeteringError?, Any?) -> Void) {
         
         guard let token = user.authentication.idToken else {

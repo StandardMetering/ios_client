@@ -10,38 +10,34 @@ import UIKit
 
 class SplitViewController: UISplitViewController {
 
+    
+    // -----------------------------------------------------------------------------------------------------------------
+    // MARK: - Application Lifecycle
+    // -----------------------------------------------------------------------------------------------------------------
+    
+    
+    //
+    // Description:
+    //   Application lifecycle method called when view controller is loaded.
+    //
+    // UI Outlets not yet set up
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Get app delegate
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             
+            // Set display mode button
             let navigationController = self.viewControllers[self.viewControllers.count-1] as! UINavigationController
             navigationController.topViewController!.navigationItem.leftBarButtonItem = self.displayModeButtonItem
-            self.delegate = appDelegate
             
-            let masterNavigationController = self.viewControllers[0] as! UINavigationController
-            let controller = masterNavigationController.topViewController as! MasterViewController
-            controller.managedObjectContext = appDelegate.persistentContainer.viewContext
+            // Set app delegate as this view controller's delegate
+            self.delegate = appDelegate
             
         } else {
             fatalError("Unresolved error: Unable to load application delegate.")
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

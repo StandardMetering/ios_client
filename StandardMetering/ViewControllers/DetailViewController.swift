@@ -12,24 +12,5 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
-    var detailItem: Event? {
-        didSet {
-            updateUI()
-        }
-    }
-    
-    func updateUI() {
-        if let detail = detailItem {
-            if let label = detailDescriptionLabel {
-                label.text = detail.timestamp!.description
-            }
-        }
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        updateUI()
-    }
 }
 

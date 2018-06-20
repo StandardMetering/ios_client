@@ -140,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				E00E5CE420CD9D9A00C478A0 /* StandardMetering */,
-				E0C3A5A420CF752700591135 /* Controllers */,
 				E00E5CFE20CD9D9B00C478A0 /* StandardMeteringTests */,
 				E00E5D0920CD9D9B00C478A0 /* StandardMeteringUITests */,
 				E00E5CE320CD9D9A00C478A0 /* Products */,
@@ -170,6 +169,7 @@
 				E00E5D2120CDBAA100C478A0 /* Models */,
 				E06F3CC520D0ADBE00AE5ED7 /* ViewModels */,
 				E00E5D1E20CDB9E600C478A0 /* ViewControllers */,
+				E0C3A5A420CF752700591135 /* Controllers */,
 			);
 			path = StandardMetering;
 			sourceTree = "<group>";
