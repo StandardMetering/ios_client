@@ -18,9 +18,10 @@ class CreateNewInstallViewController: UIViewController, UIPickerViewDataSource, 
     @IBOutlet weak var tf_installNumber: UITextField!
     @IBOutlet weak var tf_street: UITextField!
     @IBOutlet weak var tf_city: UITextField!
-    @IBOutlet weak var pv_state: UIPickerView!
+    @IBOutlet weak var tf_state: UITextField!
     @IBOutlet weak var tf_zip: UITextField!
     
+    let pv_state = UIPickerView()
     
     // -----------------------------------------------------------------------------------------------------------------
     // MARK: - Application Lifecycle
@@ -40,6 +41,8 @@ class CreateNewInstallViewController: UIViewController, UIPickerViewDataSource, 
         self.tf_street.delegate = self
         self.tf_city.delegate = self
         self.tf_zip.delegate = self
+        
+        self.tf_state.inputView = self.pv_state
         
         self.title = "Create New Install"
     }
@@ -84,7 +87,7 @@ class CreateNewInstallViewController: UIViewController, UIPickerViewDataSource, 
     //   Called when a user has selected a specific picker view row
     //
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+        self.tf_state.text = usStates[row].split(separator: "-")[1].trimmingCharacters(in: .whitespaces)
     }
     
     

@@ -99,17 +99,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="address-level2"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5so-8z-vzS">
-                                <rect key="frame" x="16" y="196" width="343" height="216"/>
-                            </pickerView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Missouri" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HxD-Qn-2IP">
+                                <rect key="frame" x="16" y="196" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <textField opaque="NO" tag="3" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="64113" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Bd-Kk-5fB">
-                                <rect key="frame" x="16" y="420" width="343" height="30"/>
+                                <rect key="frame" x="16" y="234" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="continue" textContentType="postal-code"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3f2-tX-Ymj">
-                                <rect key="frame" x="16" y="458" width="343" height="30"/>
+                                <rect key="frame" x="16" y="272" width="343" height="30"/>
                                 <state key="normal" title="Create"/>
                                 <connections>
                                     <action selector="btnCreatePressed" destination="IJD-Op-tjP" eventType="touchUpInside" id="xZm-CV-U2H"/>
@@ -119,18 +122,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3f2-tX-Ymj" firstAttribute="top" secondItem="4Bd-Kk-5fB" secondAttribute="bottom" constant="8" id="15J-2d-nGM"/>
+                            <constraint firstItem="4Bd-Kk-5fB" firstAttribute="top" secondItem="HxD-Qn-2IP" secondAttribute="bottom" constant="8" id="3xc-NF-gXe"/>
                             <constraint firstItem="3f2-tX-Ymj" firstAttribute="leading" secondItem="xVS-wb-Vug" secondAttribute="leading" constant="16" id="4QA-cg-p8m"/>
+                            <constraint firstItem="HxD-Qn-2IP" firstAttribute="leading" secondItem="xVS-wb-Vug" secondAttribute="leading" constant="16" id="4SR-kf-LDZ"/>
                             <constraint firstItem="LO6-CZ-Baq" firstAttribute="leading" secondItem="xVS-wb-Vug" secondAttribute="leading" constant="16" id="AFf-X5-z0v"/>
                             <constraint firstItem="oPs-vK-1GR" firstAttribute="top" secondItem="LO6-CZ-Baq" secondAttribute="bottom" constant="8" id="BYf-W9-C0Y"/>
                             <constraint firstItem="xVS-wb-Vug" firstAttribute="trailing" secondItem="4Bd-Kk-5fB" secondAttribute="trailing" constant="16" id="C4b-4f-27D"/>
-                            <constraint firstItem="5so-8z-vzS" firstAttribute="leading" secondItem="xVS-wb-Vug" secondAttribute="leading" constant="16" id="FgD-IV-gbZ"/>
-                            <constraint firstItem="xVS-wb-Vug" firstAttribute="trailing" secondItem="5so-8z-vzS" secondAttribute="trailing" constant="16" id="K5v-zv-RDy"/>
                             <constraint firstItem="lTz-Lo-tjZ" firstAttribute="leading" secondItem="xVS-wb-Vug" secondAttribute="leading" constant="16" id="Lgd-Sf-L4A"/>
-                            <constraint firstItem="4Bd-Kk-5fB" firstAttribute="top" secondItem="5so-8z-vzS" secondAttribute="bottom" constant="8" id="Noy-hZ-hI7"/>
                             <constraint firstItem="8i8-Me-L80" firstAttribute="leading" secondItem="xVS-wb-Vug" secondAttribute="leading" constant="16" id="Txk-g5-Q3h"/>
                             <constraint firstItem="oPs-vK-1GR" firstAttribute="leading" secondItem="xVS-wb-Vug" secondAttribute="leading" constant="16" id="VW2-an-UXj"/>
                             <constraint firstItem="xVS-wb-Vug" firstAttribute="trailing" secondItem="8i8-Me-L80" secondAttribute="trailing" constant="16" id="Xo1-mS-rX6"/>
                             <constraint firstItem="xVS-wb-Vug" firstAttribute="trailing" secondItem="3f2-tX-Ymj" secondAttribute="trailing" constant="16" id="Yo7-el-AqR"/>
+                            <constraint firstItem="xVS-wb-Vug" firstAttribute="trailing" secondItem="HxD-Qn-2IP" secondAttribute="trailing" constant="16" id="agx-bO-9Aq"/>
                             <constraint firstItem="lTz-Lo-tjZ" firstAttribute="top" secondItem="aW3-gk-bhy" secondAttribute="bottom" constant="8" id="crx-Bk-5xx"/>
                             <constraint firstItem="xVS-wb-Vug" firstAttribute="trailing" secondItem="lTz-Lo-tjZ" secondAttribute="trailing" constant="16" id="djl-81-cSS"/>
                             <constraint firstItem="xVS-wb-Vug" firstAttribute="trailing" secondItem="oPs-vK-1GR" secondAttribute="trailing" constant="16" id="dtO-os-T9C"/>
@@ -138,7 +141,7 @@
                             <constraint firstItem="aW3-gk-bhy" firstAttribute="leading" secondItem="xVS-wb-Vug" secondAttribute="leading" constant="16" id="n7i-lN-E0x"/>
                             <constraint firstItem="8i8-Me-L80" firstAttribute="top" secondItem="oPs-vK-1GR" secondAttribute="bottom" constant="16" id="rxs-qZ-N6V"/>
                             <constraint firstItem="4Bd-Kk-5fB" firstAttribute="leading" secondItem="xVS-wb-Vug" secondAttribute="leading" constant="16" id="tPP-1z-UbB"/>
-                            <constraint firstItem="5so-8z-vzS" firstAttribute="top" secondItem="lTz-Lo-tjZ" secondAttribute="bottom" constant="8" id="tyZ-bb-HAX"/>
+                            <constraint firstItem="HxD-Qn-2IP" firstAttribute="top" secondItem="lTz-Lo-tjZ" secondAttribute="bottom" constant="8" id="umD-55-iMS"/>
                             <constraint firstItem="xVS-wb-Vug" firstAttribute="trailing" secondItem="aW3-gk-bhy" secondAttribute="trailing" constant="16" id="xRL-FR-Vqr"/>
                             <constraint firstItem="LO6-CZ-Baq" firstAttribute="top" secondItem="xVS-wb-Vug" secondAttribute="top" constant="16" id="yYM-UF-Mqo"/>
                             <constraint firstItem="aW3-gk-bhy" firstAttribute="top" secondItem="8i8-Me-L80" secondAttribute="bottom" constant="8" id="ybI-2P-yy1"/>
@@ -147,16 +150,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="QaW-3r-TBd"/>
                     <connections>
-                        <outlet property="pv_state" destination="5so-8z-vzS" id="dvq-fw-dkr"/>
                         <outlet property="tf_city" destination="lTz-Lo-tjZ" id="kWU-rH-wah"/>
                         <outlet property="tf_installNumber" destination="oPs-vK-1GR" id="4o9-ee-DlM"/>
+                        <outlet property="tf_state" destination="HxD-Qn-2IP" id="RhI-t4-b9K"/>
                         <outlet property="tf_street" destination="aW3-gk-bhy" id="xck-LW-nYb"/>
                         <outlet property="tf_zip" destination="4Bd-Kk-5fB" id="jUd-FD-Cjw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HAe-Tw-Jdo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1645.5" y="921.5"/>
+            <point key="canvasLocation" x="1644" y="920.68965517241384"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="zVr-ib-3kn">
