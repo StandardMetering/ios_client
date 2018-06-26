@@ -28,6 +28,7 @@
 		E06F3CC920D0B86B00AE5ED7 /* InstallCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F3CC820D0B86B00AE5ED7 /* InstallCellViewModel.swift */; };
 		E07A20BD20D1E92900CDCC11 /* SyncActionsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07A20BC20D1E92900CDCC11 /* SyncActionsCellModel.swift */; };
 		E08B7A9120E1BD9D00950890 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08B7A9020E1BD9D00950890 /* Util.swift */; };
+		E08B7A9320E1CC6300950890 /* InstallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08B7A9220E1CC6300950890 /* InstallModel.swift */; };
 		E0C3A5A320CF749C00591135 /* StandardMeteringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3A5A220CF749C00591135 /* StandardMeteringError.swift */; };
 		E0C3A5A620CF754000591135 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3A5A520CF754000591135 /* NetworkRequest.swift */; };
 /* End PBXBuildFile section */
@@ -82,6 +83,7 @@
 		E06F3CC820D0B86B00AE5ED7 /* InstallCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallCellViewModel.swift; sourceTree = "<group>"; };
 		E07A20BC20D1E92900CDCC11 /* SyncActionsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncActionsCellModel.swift; sourceTree = "<group>"; };
 		E08B7A9020E1BD9D00950890 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		E08B7A9220E1CC6300950890 /* InstallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallModel.swift; sourceTree = "<group>"; };
 		E0C3A5A220CF749C00591135 /* StandardMeteringError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardMeteringError.swift; sourceTree = "<group>"; };
 		E0C3A5A520CF754000591135 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		E83B30174F92D5785C72C6CB /* Pods-StandardMetering.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardMetering.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StandardMetering/Pods-StandardMetering.debug.xcconfig"; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				E00E5CE720CD9D9B00C478A0 /* StandardMetering.xcdatamodeld */,
 				E00E5D2220CDBAC200C478A0 /* UserModel.swift */,
 				E0C3A5A220CF749C00591135 /* StandardMeteringError.swift */,
+				E08B7A9220E1CC6300950890 /* InstallModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				E00E5D2320CDBAC200C478A0 /* UserModel.swift in Sources */,
 				E00E5CE920CD9D9B00C478A0 /* StandardMetering.xcdatamodeld in Sources */,
 				E0C3A5A620CF754000591135 /* NetworkRequest.swift in Sources */,
+				E08B7A9320E1CC6300950890 /* InstallModel.swift in Sources */,
 				E04E55D520D1F7B5006D673E /* CreateNewInstallViewController.swift in Sources */,
 				E00E5CEB20CD9D9B00C478A0 /* MasterViewController.swift in Sources */,
 				E08B7A9120E1BD9D00950890 /* Util.swift in Sources */,

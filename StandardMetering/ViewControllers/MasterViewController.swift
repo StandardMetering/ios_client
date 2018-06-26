@@ -109,6 +109,14 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         // Set table view data source to view model member variable
         self.tableView.dataSource = self.viewModel
+        
+        NotificationCenter.default.addObserver(
+            forName: .installModelDidUpdate,
+            object: nil,
+            queue: .main,
+            using: self.loadSavedInstalls
+        )
+        self.loadSavedInstalls()
     }
 
     
@@ -177,6 +185,16 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         performSegue(withIdentifier: "segueToCreateNewInstall", sender: self)
     }
 
+    
+    //
+    // Description:
+    //   Called whenever installs need to be loaded from the persistent store.
+    //
+    func loadSavedInstalls(_: Notification? = nil) {
+
+        self.viewModel.present(installs: InstallModel.getAllSavedInstalls() );
+        
+    }
     
     // -----------------------------------------------------------------------------------------------------------------
     // MARK: - Segues

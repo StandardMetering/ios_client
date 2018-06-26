@@ -7,13 +7,13 @@
         <userInfo/>
     </entity>
     <entity name="InstallEntity" representedClassName="InstallEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="able_to_complete" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="able_to_complete" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="address_city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="address_state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="address_street" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="address_zip" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="install_num" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sync_status" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="install_num" attributeType="String" defaultValueString="-1" syncable="YES"/>
+        <attribute name="sync_status" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="UserEntity" representedClassName="UserEntity" syncable="YES" codeGenerationType="class">
         <attribute name="admin_rights" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>

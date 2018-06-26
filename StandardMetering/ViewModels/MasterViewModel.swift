@@ -69,8 +69,8 @@ class MasterViewModel: NSObject, UITableViewDataSource {
     
     private let masterViewController: MasterViewController
     
-    private var completeInstalls = [InstallEntity?]()
-    private var incompleteInstalls = [InstallEntity?]()
+    private var completeInstalls = [InstallEntity]()
+    private var incompleteInstalls = [InstallEntity]()
     private let profileActions = [
         "Manage Users", // TODO: Admin Only
         "Sign Out"
@@ -83,6 +83,27 @@ class MasterViewModel: NSObject, UITableViewDataSource {
     //
     init(master masterViewController: MasterViewController) {
         self.masterViewController = masterViewController
+    }
+    
+    
+    //
+    // Description:
+    //   Called when new data is availible.
+    //
+    func present(installs: [InstallEntity]) {
+        
+        self.completeInstalls.removeAll()
+        self.incompleteInstalls.removeAll()
+        
+        for install in installs {
+            if install.able_to_complete {
+                self.completeInstalls.append(install)
+            } else {
+                self.incompleteInstalls.append(install)
+            }
+        }
+        
+        self.masterViewController.tableView.reloadData()
     }
     
     

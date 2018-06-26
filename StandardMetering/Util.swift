@@ -42,3 +42,23 @@ extension UIViewController {
         self.present(optionMenu, animated: true, completion: nil)
     }
 }
+
+
+class Address {
+    var street: String
+    var city: String
+    var state: String
+    var zip: String
+    
+    init(
+        street: String,
+        city: String,
+        state: String,
+        zip: String
+        ) {
+        self.street = street
+        self.city = city
+        self.state = state
+        self.zip = zip
+    }
+}

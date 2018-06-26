@@ -47,13 +47,52 @@ class CreateNewInstallViewController: UIViewController, UIPickerViewDataSource, 
         self.title = "Create New Install"
     }
     
+    
+    //
+    // Description:
+    //   Called when the user presses the "Create" button
+    //
     @IBAction func btnCreatePressed() {
         
+        guard let installNum = self.tf_installNumber.text, installNum.count > 0 else {
+            print("Please proved a valid install number")
+            return
+        }
+        
+        guard let street = self.tf_street.text, street.count > 0 else {
+            print("Please proved a valid street")
+            return
+        }
+        
+        guard let city = self.tf_city.text, city.count > 0 else {
+            print("Please proved a valid city")
+            return
+        }
+        
+        guard let state = self.tf_state.text, state.count > 0 else {
+            print("Please proved a valid state")
+            return
+        }
+        
+        guard let zip = self.tf_zip.text, zip.count == 5 else {
+            print("Please proved a valid zip code")
+            return
+        }
+        
+        let address = Address(
+            street: street,
+            city: city,
+            state: state,
+            zip: zip
+        )
+        
+        InstallModel.createNewInstall(withNum: installNum, address: address)
     }
     
     // -----------------------------------------------------------------------------------------------------------------
     // MARK: - Picker View Controll
     // -----------------------------------------------------------------------------------------------------------------
+    
     
     //
     // Description:
