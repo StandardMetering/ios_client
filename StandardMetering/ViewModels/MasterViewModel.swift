@@ -83,13 +83,6 @@ class MasterViewModel: NSObject, UITableViewDataSource {
     //
     init(master masterViewController: MasterViewController) {
         self.masterViewController = masterViewController
-        
-        incompleteInstalls.append(nil)
-        incompleteInstalls.append(nil)
-        incompleteInstalls.append(nil)
-        
-        completeInstalls.append(nil)
-        completeInstalls.append(nil)
     }
     
     

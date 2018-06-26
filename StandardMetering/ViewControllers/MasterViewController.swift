@@ -174,7 +174,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     //   Action when "+" bar button is pressed.
     //
     @objc func addBarButtonPressed(_ sender: Any) {
-        // TODO: TODO: Implement
+        performSegue(withIdentifier: "segueToCreateNewInstall", sender: self)
     }
 
     
@@ -235,14 +235,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             if indexPath.row == 0 { // Manage Users
                 
             } else if indexPath.row == 1 { // Sign Out
-                
-                
+            
                 self.displayActionSheet(
                     forView: tableView.cellForRow(at: indexPath),
                     withTitle: "Sign Out?",
                     message: "Are you sure you want to sign out?",
                     affirmLabel: "Sign Out"
-                    ) { alertAction in
+                    ) { _ in
                     self.splitVC.unwindToSignIn()
                 }
                 

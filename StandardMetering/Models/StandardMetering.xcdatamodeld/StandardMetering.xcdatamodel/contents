@@ -8,6 +8,10 @@
     </entity>
     <entity name="InstallEntity" representedClassName="InstallEntity" syncable="YES" codeGenerationType="class">
         <attribute name="able_to_complete" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="address_city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="address_state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="address_street" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="address_zip" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="install_num" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sync_status" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
     </entity>
@@ -20,7 +24,7 @@
     </entity>
     <elements>
         <element name="Event" positionX="261" positionY="189" width="128" height="60"/>
-        <element name="InstallEntity" positionX="270" positionY="234" width="128" height="90"/>
+        <element name="InstallEntity" positionX="270" positionY="234" width="128" height="150"/>
         <element name="UserEntity" positionX="270" positionY="207" width="128" height="120"/>
     </elements>
 </model>
