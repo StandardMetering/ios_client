@@ -54,4 +54,13 @@ class SplitViewController: UISplitViewController {
         
         return self.collapseDetailViewController
     }
+    
+    
+    //
+    // Description:
+    //   Segues back to sign in view controller.
+    //
+    func unwindToSignIn() {
+        performSegue(withIdentifier: "unwindToSignIn", sender: self)
+    }
 }

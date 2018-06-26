@@ -19,6 +19,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     var viewModel: MasterViewModel! = nil
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
+    var splitVC: SplitViewController! = nil
 
     
     // -----------------------------------------------------------------------------------------------------------------
@@ -33,11 +34,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     // Least used
     //
     override init(style: UITableViewStyle) {
+        
         super.init(style: style)
         
         // Initialize table view model
         self.viewModel = MasterViewModel(master: self)
-        
+
         
         // Initialize persistant store managed context
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -81,7 +83,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             // TODO: TODO: Bail if no user model
             fatalError("Could not load user");
         }
+        
+        guard let splitVC = self.splitViewController as? SplitViewController else {
+            fatalError("Unable to load split view controller")
+        }
 
+        self.splitVC = splitVC;
+        
         // Add "+" button to navigation bar
         let addButton = UIBarButtonItem(
             barButtonSystemItem: .add,
@@ -216,6 +224,28 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             
             if indexPath.row == 0 {
                 performSegue(withIdentifier: "segueToCreateNewInstall", sender: self)
+            }
+            
+            break;
+        case completeInstallItem.index:
+            
+            break;
+        case profileActionsItem.index:
+            
+            if indexPath.row == 0 { // Manage Users
+                
+            } else if indexPath.row == 1 { // Sign Out
+                
+                
+                self.displayActionSheet(
+                    forView: tableView.cellForRow(at: indexPath),
+                    withTitle: "Sign Out?",
+                    message: "Are you sure you want to sign out?",
+                    affirmLabel: "Sign Out"
+                    ) { alertAction in
+                    self.splitVC.unwindToSignIn()
+                }
+                
             }
             
             break;

@@ -50,12 +50,20 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
         GIDSignIn.sharedInstance().uiDelegate = self
         
         // Check if saved user
+        self.checkForUser()
+    }
+
+    
+    //
+    // Description:
+    //   Checks if there is a currently signed in user.
+    //
+    func checkForUser() {
         if let user = UserModel.getSharedInstance() {
             stopProcess(forReason: "Local User: \(user.display_name)")
             self.btn_proceed.isHidden = false
         }
     }
-
     
     // -----------------------------------------------------------------------------------------------------------------
     // MARK: - Segue
@@ -72,6 +80,15 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
         
     }
     
+    
+    //
+    // Description:
+    //   Called when another view controller unwinds to the sign in view controller
+    //
+    @IBAction func unwindToSignIn(segue: UIStoryboardSegue) {
+        GIDSignIn.sharedInstance().signOut()
+        self.checkForUser()
+    }
     
     // -----------------------------------------------------------------------------------------------------------------
     // MARK: - Actions
