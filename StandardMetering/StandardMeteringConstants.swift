@@ -17,6 +17,9 @@ extension UIColor {
     open static var forrestGreen = UIColor(red: 34.0/255, green: 139.0/255, blue: 34.0/255, alpha: 1.0)
 }
 
+let syncCompleteText = "Sync ✓"
+let syncNeededText = "Sync !"
+
 let usStates = [ "AK - Alaska",
                  "AL - Alabama",
                  "AR - Arkansas",

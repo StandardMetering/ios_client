@@ -200,6 +200,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     // MARK: - Segues
     // -----------------------------------------------------------------------------------------------------------------
 
+    var selectedInstall: InstallEntity? = nil
 
     //
     // Description:
@@ -219,6 +220,19 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         controller?.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         controller?.navigationItem.leftItemsSupplementBackButton = true
         
+        // Determine segue
+        if segue.identifier == "segueToInstallDetail" {
+            
+            // Get destination view controller and selected install to display
+            if let destNav = segue.destination as? UINavigationController,
+                let destVC = destNav.viewControllers.first as? InstallDetailViewController,
+                let installToDisplay = self.selectedInstall {
+                
+                // Send the selected install to the detail view controller
+                destVC.install = installToDisplay
+            }
+            
+        }
     }
     
     
@@ -242,6 +256,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             
             if indexPath.row == 0 {
                 performSegue(withIdentifier: "segueToCreateNewInstall", sender: self)
+            }
+            else
+            {
+                self.selectedInstall = self.viewModel.incompleteInstalls[indexPath.row - 1];
+                
+                performSegue(withIdentifier: "segueToInstallDetail", sender: self)
             }
             
             break;

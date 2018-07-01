@@ -64,10 +64,10 @@ class InstallCellViewModel: UITableViewCell {
             // Set sync status
             if install.sync_status {
                 self.lbl_syncStatus!.textColor = .forrestGreen
-                self.lbl_syncStatus!.text = "Sync ✓"
+                self.lbl_syncStatus!.text = syncCompleteText
             } else {
                 self.lbl_syncStatus!.textColor = .red
-                self.lbl_syncStatus!.text = "Sync !"
+                self.lbl_syncStatus!.text = syncNeededText
             }
         }
     }

@@ -69,8 +69,8 @@ class MasterViewModel: NSObject, UITableViewDataSource {
     
     private let masterViewController: MasterViewController
     
-    private var completeInstalls = [InstallEntity]()
-    private var incompleteInstalls = [InstallEntity]()
+    var completeInstalls = [InstallEntity]()
+    var incompleteInstalls = [InstallEntity]()
     private let profileActions = [
         "Manage Users", // TODO: Admin Only
         "Sign Out"

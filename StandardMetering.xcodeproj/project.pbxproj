@@ -24,6 +24,7 @@
 		E00E5D1D20CDB28F00C478A0 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E5D1C20CDB28F00C478A0 /* SplitViewController.swift */; };
 		E00E5D2320CDBAC200C478A0 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E5D2220CDBAC200C478A0 /* UserModel.swift */; };
 		E04E55D520D1F7B5006D673E /* CreateNewInstallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E55D420D1F7B5006D673E /* CreateNewInstallViewController.swift */; };
+		E06DEE2120E9699400110BB2 /* InstallDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06DEE2020E9699400110BB2 /* InstallDetailViewController.swift */; };
 		E06F3CC720D0ADD600AE5ED7 /* MasterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F3CC620D0ADD600AE5ED7 /* MasterViewModel.swift */; };
 		E06F3CC920D0B86B00AE5ED7 /* InstallCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F3CC820D0B86B00AE5ED7 /* InstallCellViewModel.swift */; };
 		E07A20BD20D1E92900CDCC11 /* SyncActionsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07A20BC20D1E92900CDCC11 /* SyncActionsCellModel.swift */; };
@@ -79,6 +80,7 @@
 		E00E5D1C20CDB28F00C478A0 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		E00E5D2220CDBAC200C478A0 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		E04E55D420D1F7B5006D673E /* CreateNewInstallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewInstallViewController.swift; sourceTree = "<group>"; };
+		E06DEE2020E9699400110BB2 /* InstallDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallDetailViewController.swift; sourceTree = "<group>"; };
 		E06F3CC620D0ADD600AE5ED7 /* MasterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewModel.swift; sourceTree = "<group>"; };
 		E06F3CC820D0B86B00AE5ED7 /* InstallCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallCellViewModel.swift; sourceTree = "<group>"; };
 		E07A20BC20D1E92900CDCC11 /* SyncActionsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncActionsCellModel.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				E00E5CEA20CD9D9B00C478A0 /* MasterViewController.swift */,
 				E00E5CEC20CD9D9B00C478A0 /* DetailViewController.swift */,
 				E04E55D420D1F7B5006D673E /* CreateNewInstallViewController.swift */,
+				E06DEE2020E9699400110BB2 /* InstallDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				E00E5CE920CD9D9B00C478A0 /* StandardMetering.xcdatamodeld in Sources */,
 				E0C3A5A620CF754000591135 /* NetworkRequest.swift in Sources */,
 				E08B7A9320E1CC6300950890 /* InstallModel.swift in Sources */,
+				E06DEE2120E9699400110BB2 /* InstallDetailViewController.swift in Sources */,
 				E04E55D520D1F7B5006D673E /* CreateNewInstallViewController.swift in Sources */,
 				E00E5CEB20CD9D9B00C478A0 /* MasterViewController.swift in Sources */,
 				E08B7A9120E1BD9D00950890 /* Util.swift in Sources */,
