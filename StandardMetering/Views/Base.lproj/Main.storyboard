@@ -214,7 +214,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYp-k6-4VH">
                                 <rect key="frame" x="16" y="336" width="343" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Edit">
+                                <state key="normal" title="Work">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -225,11 +225,41 @@
                                 <rect key="frame" x="16" y="374" width="343" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal">
+                                <state key="normal" title="Sync">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="syncButtonPressed:" destination="Ru6-5B-UZp" eventType="touchUpInside" id="bKC-gM-8mw"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzZ-mg-gNG">
+                                <rect key="frame" x="16" y="336" width="343" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Save Changes and Continue">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSaveAndContinuePressed" destination="Ru6-5B-UZp" eventType="touchUpInside" id="SlU-QY-vSd"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYB-v0-b85">
+                                <rect key="frame" x="16" y="374" width="343" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Save Changes and Exit">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSaveAndExitPressed" destination="Ru6-5B-UZp" eventType="touchUpInside" id="Ekd-dF-adu"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N1Z-4Q-n9G">
+                                <rect key="frame" x="16" y="412" width="343" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Cancel Changes and Exit">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnCancelAndExitPressed" destination="Ru6-5B-UZp" eventType="touchUpInside" id="p0N-5b-a6t"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -237,18 +267,27 @@
                         <constraints>
                             <constraint firstItem="P1j-Dp-eqx" firstAttribute="trailing" secondItem="VYp-k6-4VH" secondAttribute="trailing" constant="16" id="0je-qH-HK8"/>
                             <constraint firstItem="P1j-Dp-eqx" firstAttribute="trailing" secondItem="ef8-bs-Dh2" secondAttribute="trailing" constant="16" id="2bs-vE-RDd"/>
+                            <constraint firstItem="P1j-Dp-eqx" firstAttribute="trailing" secondItem="OzZ-mg-gNG" secondAttribute="trailing" constant="16" id="3BH-qn-cs5"/>
                             <constraint firstItem="P1j-Dp-eqx" firstAttribute="trailing" secondItem="aAK-91-N9z" secondAttribute="trailing" constant="16" id="3VA-gu-s2F"/>
                             <constraint firstItem="VeD-l6-IVL" firstAttribute="top" secondItem="VYp-k6-4VH" secondAttribute="bottom" constant="8" id="4MZ-fu-xRV"/>
+                            <constraint firstItem="N1Z-4Q-n9G" firstAttribute="top" secondItem="dYB-v0-b85" secondAttribute="bottom" constant="8" id="51v-SK-tmY"/>
+                            <constraint firstItem="N1Z-4Q-n9G" firstAttribute="leading" secondItem="P1j-Dp-eqx" secondAttribute="leading" constant="16" id="5fT-EB-Ffa"/>
                             <constraint firstItem="aAK-91-N9z" firstAttribute="leading" secondItem="P1j-Dp-eqx" secondAttribute="leading" constant="16" id="5hc-oV-B1z"/>
                             <constraint firstItem="P1j-Dp-eqx" firstAttribute="trailing" secondItem="1Ny-HA-5d4" secondAttribute="trailing" constant="16" id="67y-AN-uex"/>
+                            <constraint firstItem="P1j-Dp-eqx" firstAttribute="trailing" secondItem="dYB-v0-b85" secondAttribute="trailing" constant="16" id="8wk-bW-44u"/>
                             <constraint firstItem="VYp-k6-4VH" firstAttribute="top" secondItem="1Ny-HA-5d4" secondAttribute="bottom" constant="8" id="9cR-0z-UyP"/>
                             <constraint firstItem="Rwr-sP-2ms" firstAttribute="leading" secondItem="P1j-Dp-eqx" secondAttribute="leading" constant="16" id="HGd-6N-wfi"/>
                             <constraint firstItem="Rwr-sP-2ms" firstAttribute="top" secondItem="cEZ-ux-w2J" secondAttribute="bottom" constant="8" id="JAR-nh-0Zv"/>
+                            <constraint firstItem="OzZ-mg-gNG" firstAttribute="top" secondItem="1Ny-HA-5d4" secondAttribute="bottom" constant="8" id="KB8-IO-wWM"/>
                             <constraint firstItem="VYp-k6-4VH" firstAttribute="leading" secondItem="P1j-Dp-eqx" secondAttribute="leading" constant="16" id="Mlp-iR-9IK"/>
                             <constraint firstItem="1Ny-HA-5d4" firstAttribute="leading" secondItem="P1j-Dp-eqx" secondAttribute="leading" constant="16" id="OQ3-hE-q11"/>
+                            <constraint firstItem="OzZ-mg-gNG" firstAttribute="leading" secondItem="P1j-Dp-eqx" secondAttribute="leading" constant="16" id="SoH-lt-Xyu"/>
                             <constraint firstItem="cEZ-ux-w2J" firstAttribute="leading" secondItem="P1j-Dp-eqx" secondAttribute="leading" constant="16" id="TgY-IH-yx7"/>
                             <constraint firstItem="P1j-Dp-eqx" firstAttribute="trailing" secondItem="cEZ-ux-w2J" secondAttribute="trailing" constant="16" id="ZA7-2u-nJQ"/>
+                            <constraint firstItem="P1j-Dp-eqx" firstAttribute="trailing" secondItem="N1Z-4Q-n9G" secondAttribute="trailing" constant="16" id="bnH-Iz-cZM"/>
                             <constraint firstItem="CJs-hM-UXO" firstAttribute="leading" secondItem="P1j-Dp-eqx" secondAttribute="leading" constant="16" id="cn6-pC-g1S"/>
+                            <constraint firstItem="dYB-v0-b85" firstAttribute="top" secondItem="OzZ-mg-gNG" secondAttribute="bottom" constant="8" id="cr1-VX-ZhK"/>
+                            <constraint firstItem="dYB-v0-b85" firstAttribute="leading" secondItem="P1j-Dp-eqx" secondAttribute="leading" constant="16" id="fnu-ZY-FTA"/>
                             <constraint firstItem="1Ny-HA-5d4" firstAttribute="top" secondItem="Rwr-sP-2ms" secondAttribute="bottom" constant="8" id="h9l-8k-Zxl"/>
                             <constraint firstItem="ef8-bs-Dh2" firstAttribute="leading" secondItem="P1j-Dp-eqx" secondAttribute="leading" constant="16" id="icp-NL-lTX"/>
                             <constraint firstItem="CJs-hM-UXO" firstAttribute="top" secondItem="aAK-91-N9z" secondAttribute="bottom" constant="16" id="luG-8L-yVC"/>
@@ -267,7 +306,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="cE0-JG-lOM"/>
                     <connections>
+                        <outlet property="btn_cancelAndExit" destination="N1Z-4Q-n9G" id="bDX-fc-lmm"/>
                         <outlet property="btn_edit" destination="VYp-k6-4VH" id="X4g-hY-Adq"/>
+                        <outlet property="btn_saveAndContinue" destination="OzZ-mg-gNG" id="0hn-KT-93f"/>
+                        <outlet property="btn_saveAndExit" destination="dYB-v0-b85" id="VSh-Ai-Ceg"/>
                         <outlet property="btn_sync" destination="VeD-l6-IVL" id="7gb-sb-JjH"/>
                         <outlet property="tf_city" destination="cEZ-ux-w2J" id="3UY-zs-4CM"/>
                         <outlet property="tf_installNum" destination="aAK-91-N9z" id="PeQ-uf-Cfz"/>

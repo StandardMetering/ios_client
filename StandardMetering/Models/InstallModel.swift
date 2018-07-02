@@ -63,17 +63,28 @@ class InstallModel {
         
         managedContext.insert(newInstall)
         
-        do {
-            try managedContext.save()
-        } catch {
-            print("ERRRRR!")
+        if !self.saveContext() {
+            print("Could not create new install")
             return;
         }
-        
-        NotificationCenter.default.post(
-            name: .installModelDidUpdate,
-            object: nil
-        );
     }
     
+    
+    //
+    // Description:
+    //   Called when an install has been manipulated and a save is required.
+    //
+    static func saveContext() -> Bool {
+        do {
+            try managedContext.save()
+            NotificationCenter.default.post(
+                name: .installModelDidUpdate,
+                object: nil
+            );
+            return true;
+        } catch {
+            print("ERRRRR!")
+            return false;
+        }
+    }
 }
