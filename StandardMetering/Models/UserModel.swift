@@ -224,6 +224,7 @@ class UserModel: CustomStringConvertible {
                 
                 let userInfo = data as! UserInfo;
                 manager.replaceUserEntity(withNewUser: userInfo)
+                manager.userModel!.onlineStatus = true
                 
                 callback( nil, userInfo )
         }

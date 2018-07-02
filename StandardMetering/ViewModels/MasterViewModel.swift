@@ -132,7 +132,12 @@ class MasterViewModel: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case syncActionItem.index:
-            return 1
+            if let user = UserModel.getSharedInstance(),
+                user.onlineStatus {
+                return 1
+            } else {
+                return 0
+            }
         case incompleteInstallItem.index:
             return self.incompleteInstalls.count + 1
         case completeInstallItem.index:
@@ -156,7 +161,7 @@ class MasterViewModel: NSObject, UITableViewDataSource {
             
             // Sync Buttons section
             case syncActionItem.index:
-                
+
                 // Return sync buttons cell
                 let cell = self.masterViewController.tableView.dequeueReusableCell(
                     withIdentifier: "SyncActionsCellModel",
