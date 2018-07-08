@@ -200,6 +200,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
             // Print out error
             print("\(error.localizedDescription)")
             self.stopProcess(forReason: error.localizedDescription )
+            self.btn_proceed.isHidden = false
             
             return
         }
