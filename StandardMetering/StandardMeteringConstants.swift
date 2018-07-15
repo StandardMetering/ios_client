@@ -74,3 +74,45 @@ let usStates = [ "AK - Alaska",
                  "WI - Wisconsin",
                  "WV - West Virginia",
                  "WY - Wyoming"]
+
+class StatesPickerViewDataSource: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    //
+    // Description:
+    //   Return the number of columns in the picker view
+    //
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    
+    //
+    // Description:
+    //   Determines the number of rows in a column
+    //
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return usStates.count
+    }
+    
+    
+    //
+    // Description:
+    //   Gets the label text for a specific picker view row
+    //
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return usStates[row]
+    }
+    
+    //
+    // Description:
+    //   Called when a user has selected a specific picker view row
+    //
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        self.tf_state.text = usStates[row].split(separator: "-")[1].trimmingCharacters(in: .whitespaces)
+        print("Selected: \(usStates[row])")
+    }
+}

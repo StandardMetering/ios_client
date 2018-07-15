@@ -2,120 +2,53 @@
 //  InstallDetailViewController.swift
 //  StandardMetering
 //
-//  Created by Grant Broadwater on 7/1/18.
+//  Created by Grant Broadwater on 7/7/18.
 //  Copyright © 2018 StandardMetering. All rights reserved.
 //
 
 import UIKit
 
-class InstallDetailViewController: EditInstallViewController {
-
+class InstallDetailViewController: InstallViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    
     // -----------------------------------------------------------------------------------------------------------------
     // MARK: - Member Variables
     // -----------------------------------------------------------------------------------------------------------------
     
-    @IBOutlet weak var tf_installNum: UITextField!
-    @IBOutlet weak var tf_street: UITextField!
-    @IBOutlet weak var tf_city: UITextField!
-    @IBOutlet weak var tf_state: UITextField!
-    @IBOutlet weak var tf_zip: UITextField!
     
-    @IBOutlet weak var btn_edit: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var btn_work: UIButton!
     @IBOutlet weak var btn_sync: UIButton!
+    
     
     // -----------------------------------------------------------------------------------------------------------------
     // MARK: - Application Lifecycle
     // -----------------------------------------------------------------------------------------------------------------
     
     
-    //
-    // Description:
-    //   Called when view controller is loaded into memory.
-    //
-    // View outlets not yet set up.
-    //
+    /**
+        Called when the view is loaded into memory.
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    
-    //
-    // Description:
-    //   Called when the view is loaded and about to appear.
-    //
-    // View outlets are expected to be set up at this point.
-    //
-    override func viewWillAppear(_ animated: Bool) {
         
-        guard let _ = self.install else {
-            
-            displayActionSheet(
-                withTitle: "Error",
-                message: "Install to display not set.",
-                affirmLabel: "Okay"
-            )
-            
-            return;
-        }
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
         
         updateUI()
-    }
-    
-    
-    //
-    // Description:
-    //   Called whenever any changes have been made that may affect the UI.
-    //
-    override func updateUI() {
-        super.updateUI()
-        
-        // Make sure there is an install to update to
-        guard let _ = self.install else {
-            
-            self.btn_edit.isEnabled = false
-            
-            displayActionSheet(
-                withTitle: "Error",
-                message: "Install to display not set.",
-                affirmLabel: "Okay"
-            )
-            
-            return;
-        }
         
         guard let currentUser = UserModel.getSharedInstance() else {
-            
-            self.btn_edit.isEnabled = false
-            
             displayActionSheet(
                 withTitle: "Error",
                 message: "Could not find signed in user",
                 affirmLabel: "Okay"
             )
-            
             return;
         }
         
-        // Set title
-        self.title = "Install #\(install.install_num!)"
-        
-        // Set text field enabled properties
-        self.tf_installNum.isEnabled = self.isEditingInstall
-        self.tf_street.isEnabled = self.isEditingInstall
-        self.tf_city.isEnabled = self.isEditingInstall
-        self.tf_state.isEnabled = self.isEditingInstall
-        self.tf_zip.isEnabled = self.isEditingInstall
-        
-        // Set text field text
-        self.tf_installNum.text = self.install.install_num
-        self.tf_street.text = self.install.address_street!
-        self.tf_city.text = self.install.address_city!
-        self.tf_state.text = self.install.address_state!
-        self.tf_zip.text = self.install.address_zip!
-        
         // Update sync button
         if currentUser.onlineStatus {
-            self.btn_sync.isHidden = self.isEditingInstall
+            self.btn_sync.isHidden = false
             if self.install.sync_status {
                 self.btn_sync.setTitle(syncCompleteText, for: .normal)
                 self.btn_sync.backgroundColor = .forrestGreen
@@ -126,105 +59,100 @@ class InstallDetailViewController: EditInstallViewController {
         } else {
             self.btn_sync.isHidden = true;
         }
-        
-        // Update edit button
-        self.btn_edit.isEnabled = true
-        self.btn_edit.isHidden = self.isEditingInstall
     }
     
     
-    //
-    // Description:
-    //   Called when the user has edited values and wants to save them.
-    //
-    override func userIndicatesSaveIntention() {
+    /**
+        Called as a segue is being performed to do any custom configuration.
+     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        self.updateInstallEntityWithUIValues()
-        
-        if !InstallModel.saveContext() {
-            displayActionSheet(
-                forView: self.btn_saveAndContinue,
-                withTitle: "Error saving changes.",
-                message: "There was a problem saving your changes",
-                affirmLabel: "Okay"
-            )
+        // If segueing to edit address
+        if segue.identifier == "segueToEditInstallAddress" {
+            
+            // Get destination
+            if let destVC = segue.destination as? InstallViewController {
+                destVC.install = self.install
+            }
         }
-        
     }
     
-    //
-    // Description:
-    //   Called when the user wants to coninue to the next step of the install process.
-    //
-    override func userIndicatesContinueIntention() {
-        
-        displayActionSheet(
-            forView: self.btn_edit,
-            withTitle: "Continue",
-            message: "Continue to next step of install",
-            affirmLabel: "Okay"
-        )
-        
-    }
-    
-    // -----------------------------------------------------------------------------------------------------------------
-    // MARK: - Actions
-    // -----------------------------------------------------------------------------------------------------------------
-    
-    
-    //
-    // Description:
-    //   Called when the user presses the "Edit" button.
-    //
-    @IBAction func editButtonPressed(_ sender: UIButton) {
-        self.isEditingInstall = true;
-        self.updateUI()
-    }
-    
-    
-    //
-    // Description:
-    //   Called when the user presses the "Sync" button.
-    //
-    @IBAction func syncButtonPressed(_ sender: UIButton) {
-        displayActionSheet(
-            forView: sender,
-            withTitle: "Sync",
-            message: "Sync button pressed.",
-            affirmLabel: "Okay"
-        )
-    }
-    
-    
-    // -----------------------------------------------------------------------------------------------------------------
-    // MARK: - Utility functions
-    // -----------------------------------------------------------------------------------------------------------------
-    
-    
-    //
-    // Description:
-    //   Helper function to put ui values into install entity.
-    //
-    private func updateInstallEntityWithUIValues() {
+    /**
+        Called when visual elements need to be updated.
+     */
+    func updateUI() {
         
         // Make sure there is an install to update to
-        guard let _ = self.install else {
-            
+        guard let install = self.install else {
             displayActionSheet(
                 withTitle: "Error",
                 message: "Install to display not set.",
                 affirmLabel: "Okay"
             )
-            
             return;
         }
         
-        self.install.install_num = self.tf_installNum.text ?? ""
-        self.install.address_street = self.tf_street.text ?? ""
-        self.install.address_city = self.tf_city.text ?? ""
-        self.install.address_state = self.tf_state.text ?? ""
-        self.install.address_zip = self.tf_zip.text ?? ""
+        self.title = "Install #\(install.install_num!)"
         
+        self.tableView.reloadData()
     }
     
+    
+    /**
+        Called when performing an unwind segue back to this view controller.
+     */
+    @IBAction func unwindToInstallDetailView(segue: UIStoryboardSegue) {
+        self.updateUI()
+    }
+    
+    
+    // -----------------------------------------------------------------------------------------------------------------
+    // MARK: - Actions
+    // -----------------------------------------------------------------------------------------------------------------
+
+    
+    /**
+        Called when the "Work" button has been pressed by the user.
+     */
+    @IBAction func workButtonPressed() {
+        performSegue(withIdentifier: "segueToEditInstallAddress", sender: self)
+    }
+    
+    
+    // -----------------------------------------------------------------------------------------------------------------
+    // MARK: - Tableview Controller
+    // -----------------------------------------------------------------------------------------------------------------
+    
+    
+    /**
+        Returns the number of sections in the table view
+     */
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    
+    /**
+        Returns the number of rows in a given section.
+     */
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return InstallModel.installFieldDescriptions.count
+    }
+    
+    
+    /**
+        Returns the cell to be displayed at a given index path.
+     */
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "installItemDetailCell",
+            for: indexPath
+            ) as! InstallItemDetailCell
+
+        cell.itemIdentifier = InstallModel.installFieldDescriptions[indexPath.row]
+        let key = InstallModel.installFieldKeys[indexPath.row]
+        cell.itemDetail = self.install.value(forKey: key) as? String
+        
+        return cell
+    }
 }

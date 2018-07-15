@@ -87,4 +87,25 @@ class InstallModel {
             return false;
         }
     }
+    
+    
+   
+    static let installFieldKeys = [
+        "install_num",
+        "address_street",
+        "address_city",
+        "address_state",
+        "address_zip",
+        "complete"
+    ]
+    
+    static let installFieldDescriptions = [
+        "Install Number",
+        "Address Street",
+        "Address City",
+        "Address State",
+        "Address Zip Code",
+        "Complete"
+    ]
+    
 }

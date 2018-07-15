@@ -225,7 +225,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             
             // Get destination view controller and selected install to display
             if let destNav = segue.destination as? UINavigationController,
-                let destVC = destNav.viewControllers.first as? InstallDetailViewController,
+                let destVC = destNav.viewControllers.first as? InstallViewController,
                 let installToDisplay = self.selectedInstall {
                 
                 // Send the selected install to the detail view controller

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateNewInstallViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class CreateNewInstallViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     // -----------------------------------------------------------------------------------------------------------------
     // MARK: - Member Variables
@@ -28,30 +28,29 @@ class CreateNewInstallViewController: UIViewController, UIPickerViewDataSource, 
     // -----------------------------------------------------------------------------------------------------------------
     
     
-    //
-    // Description:
-    //   Called when view is loaded
-    //
+    
+    /**
+        Called when view is loaded
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.pv_state.dataSource = self
-        self.pv_state.delegate = self
         
         self.tf_street.delegate = self
         self.tf_city.delegate = self
         self.tf_zip.delegate = self
         
+        self.pv_state.dataSource = self
+        self.pv_state.delegate = self
         self.tf_state.inputView = self.pv_state
         
         self.title = "Create New Install"
     }
     
     
-    //
-    // Description:
-    //   Called when the user presses the "Create" button
-    //
+    /**
+        Called when the user presses the "Create" button
+     */
     @IBAction func btnCreatePressed() {
         
         guard let installNum = self.tf_installNumber.text, installNum.count > 0 else {
@@ -88,6 +87,7 @@ class CreateNewInstallViewController: UIViewController, UIPickerViewDataSource, 
         
         InstallModel.createNewInstall(withNum: installNum, address: address)
     }
+    
     
     // -----------------------------------------------------------------------------------------------------------------
     // MARK: - Picker View Controll
