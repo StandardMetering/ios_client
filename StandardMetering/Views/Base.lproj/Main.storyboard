@@ -349,6 +349,9 @@
                                 <state key="normal" title="Sync">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="syncButtonPressed" destination="mwJ-CC-7qI" eventType="touchUpInside" id="xIb-bX-2e5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W52-Su-i5O">
                                 <rect key="frame" x="16" y="579" width="343" height="30"/>

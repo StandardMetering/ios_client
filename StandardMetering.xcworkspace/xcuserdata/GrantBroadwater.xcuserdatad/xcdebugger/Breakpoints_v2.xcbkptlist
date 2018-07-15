@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandardMetering/ViewControllers/MasterViewController.swift"
-            timestampString = "553389012.908126"
+            timestampString = "553389566.929336"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "262"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandardMetering/ViewModels/MasterViewModel.swift"
-            timestampString = "553389012.909044"
+            timestampString = "553389566.930427"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
@@ -112,6 +112,22 @@
             startingLineNumber = "116"
             endingLineNumber = "116"
             landmarkName = "pickerView(_:didSelectRow:inComponent:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StandardMetering/ViewControllers/InstallDetailViewController.swift"
+            timestampString = "553389570.8457119"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "syncButtonPressed()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -89,6 +89,13 @@ class InstallModel {
     }
     
     
+    /**
+        Syncs an install to the standard metering server
+     */
+    static func sync(install: InstallEntity) {
+        print("We here boys")
+    }
+    
    
     static let installFieldKeys = [
         "install_num",

@@ -119,6 +119,14 @@ class InstallDetailViewController: InstallViewController, UITableViewDataSource,
     }
     
     
+    /**
+     Called when the "Sync" button has been pressed by the user.
+     */
+    @IBAction func syncButtonPressed() {
+        InstallModel.sync(install: self.install!)
+    }
+    
+    
     // -----------------------------------------------------------------------------------------------------------------
     // MARK: - Tableview Controller
     // -----------------------------------------------------------------------------------------------------------------
