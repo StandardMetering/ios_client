@@ -113,6 +113,7 @@ class EditInstallAddressViewController: EditInstallViewController, UIPickerViewD
         Called when the user wants to save the install.
      */
     override func userIndicatesSaveIntention() {
+        super.userIndicatesSaveIntention()
         
         self.updateInstallEntityWithUIValues()
         
@@ -131,6 +132,8 @@ class EditInstallAddressViewController: EditInstallViewController, UIPickerViewD
         Called when the user wants to coninue to the next step of the install process.
      */
     override func userIndicatesContinueIntention() {
+        super.userIndicatesSaveIntention()
+        
         displayActionSheet(
             forView: self.btn_saveAndContinue,
             withTitle: "Continue",
@@ -144,6 +147,8 @@ class EditInstallAddressViewController: EditInstallViewController, UIPickerViewD
         Called when the user wants to exit the edit install process.
      */
     override func userIndicatesExitIntention() {
+        super.userIndicatesSaveIntention()
+        
         performSegue(withIdentifier: "unwindToInstallDetailView", sender: self)
     }
     

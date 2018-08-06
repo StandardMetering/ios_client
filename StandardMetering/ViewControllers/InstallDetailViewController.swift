@@ -35,7 +35,48 @@ class InstallDetailViewController: InstallViewController, UITableViewDataSource,
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        NotificationCenter.default.addObserver(
+            forName: .installModelDidUpdate,
+            object: nil,
+            queue: .main,
+            using: self.updateUI
+        )
+        
         updateUI()
+    }
+    
+    
+    /**
+        Called as a segue is being performed to do any custom configuration.
+     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // If segueing to edit address
+        if segue.identifier == "segueToEditInstallAddress" {
+            
+            // Get destination
+            if let destVC = segue.destination as? InstallViewController {
+                destVC.install = self.install
+            }
+        }
+    }
+    
+    /**
+        Called when visual elements need to be updated.
+     */
+    func updateUI(notification: Notification? = nil) {
+        
+        // Make sure there is an install to update to
+        guard let install = self.install else {
+            displayActionSheet(
+                withTitle: "Error",
+                message: "Install to display not set.",
+                affirmLabel: "Okay"
+            )
+            return;
+        }
+        
+        self.title = "Install #\(install.install_num!)"
         
         guard let currentUser = UserModel.getSharedInstance() else {
             displayActionSheet(
@@ -59,40 +100,6 @@ class InstallDetailViewController: InstallViewController, UITableViewDataSource,
         } else {
             self.btn_sync.isHidden = true;
         }
-    }
-    
-    
-    /**
-        Called as a segue is being performed to do any custom configuration.
-     */
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        // If segueing to edit address
-        if segue.identifier == "segueToEditInstallAddress" {
-            
-            // Get destination
-            if let destVC = segue.destination as? InstallViewController {
-                destVC.install = self.install
-            }
-        }
-    }
-    
-    /**
-        Called when visual elements need to be updated.
-     */
-    func updateUI() {
-        
-        // Make sure there is an install to update to
-        guard let install = self.install else {
-            displayActionSheet(
-                withTitle: "Error",
-                message: "Install to display not set.",
-                affirmLabel: "Okay"
-            )
-            return;
-        }
-        
-        self.title = "Install #\(install.install_num!)"
         
         self.tableView.reloadData()
     }
@@ -124,6 +131,7 @@ class InstallDetailViewController: InstallViewController, UITableViewDataSource,
      */
     @IBAction func syncButtonPressed() {
         InstallModel.sync(install: self.install!)
+        self.updateUI()
     }
     
     

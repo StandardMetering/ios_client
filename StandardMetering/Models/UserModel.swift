@@ -111,6 +111,8 @@ fileprivate class UserModelManager: NSObject, NSFetchedResultsControllerDelegate
         newUser.admin_rights = user.admin_rights
         newUser.dev = user.dev
         
+        print("Saved Token: \(newUser.google_access_token ?? "nil")")
+        
         do {
             
             // Try to delete old user
@@ -211,8 +213,6 @@ class UserModel: CustomStringConvertible {
             return;
         }
         
-        print("Token: \(token)")
-        
         NetworkRequest.get(
             url: URL(string: "http://standardwater.ddns.net/api/user/info")!,
             attactchBearerToken: token ) { error, data in
@@ -222,7 +222,8 @@ class UserModel: CustomStringConvertible {
                     return
                 }
                 
-                let userInfo = data as! UserInfo;
+                var userInfo = data as! UserInfo;
+                userInfo.google_access_token = user.authentication.idToken
                 manager.replaceUserEntity(withNewUser: userInfo)
                 manager.userModel!.onlineStatus = true
                 

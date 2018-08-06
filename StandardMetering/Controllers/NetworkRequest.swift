@@ -10,6 +10,35 @@ import Foundation
 
 class NetworkRequest {
     
+    static func post(
+        url: URL,
+        withParameters params: [String:Any],
+        attatchBearerToken token: String? = nil,
+        completionCallback callback: @escaping (StandardMeteringError?, Any?) -> Void ) {
+        
+        // Form request
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        do {
+            let body = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+            
+            print("Body: \( String(data: body, encoding: .utf8)! )");
+            request.httpBody = body
+        } catch {
+            fatalError("Could not form post paramaters")
+        }
+        if let token = token {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            handleNetworkResponse(data: data, error: error, callback: callback)
+        }
+        
+        task.resume()
+    }
+    
     static func get(
         url: URL,
         attactchBearerToken bearerToken: String? = nil,
@@ -24,167 +53,7 @@ class NetworkRequest {
         
         // Completion handler
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            // Check for network error
-            guard error == nil else {
-                DispatchQueue.main.async {
-                    
-                    callback(
-                        StandardMeteringError(
-                            code: .general,
-                            message: "Networking Error"
-                        ),
-                        nil
-                    )
-                }
-                return
-            }
-            
-            // Ensure data was transmitted
-            guard let data = data else {
-                
-                DispatchQueue.main.async {
-                    callback(
-                        StandardMeteringError(
-                            code: .noDataTransmitted,
-                            message: "No data transmitted"
-                        ),
-                        nil
-                    )
-                }
-                return
-            }
-            
-            var json: [String:Any]? = nil
-            
-            // Deserialize json data
-            do {
-                json = try? JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-            }
-            
-            // Get data into dictionary
-            guard let jsonData = json else {
-                DispatchQueue.main.async {
-                    callback(
-                        StandardMeteringError(
-                            code: .incorrectDataFormat,
-                            message: "Data format not JSON"
-                        ),
-                        nil
-                    )
-                }
-                return
-            }
-            
-            // Get accepted field from response
-            guard let accepted = jsonData["accepted"] as? Bool else {
-                DispatchQueue.main.async {
-                    callback(
-                        StandardMeteringError(
-                            code: StandardMeteringError.Code.unexpectedResponseStructure,
-                            message: "Accepted filed not provided"
-                        ),
-                        nil
-                    )
-                }
-                return;
-            }
-            
-            
-            // If response was not accepted
-            if !accepted {
-                
-                // Get error
-                guard let errorObject = jsonData["error"] as? [String:Any],
-                    let errorObjectCode = errorObject["code"] as? Int,
-                    let errorObjectMessage = errorObject["message"] as? String
-                    else {
-                        DispatchQueue.main.async {
-                            callback(
-                                StandardMeteringError(
-                                    code: StandardMeteringError.Code.unexpectedErrorStructure,
-                                    message: "Unknown Error Structure"
-                                ),
-                                nil
-                            )
-                        }
-                        return;
-                }
-                
-                // Pass error to callback
-                DispatchQueue.main.async {
-                    callback(
-                        StandardMeteringError(
-                            code: StandardMeteringError.Code(rawValue: errorObjectCode)!,
-                            message: errorObjectMessage
-                        ),
-                        nil
-                    )
-                }
-                return;
-                
-            
-            }
-            // If response was accepted
-            else {
-                
-                // Get accepted field from response
-                guard let dataType = jsonData["data_type"] as? String else {
-                    DispatchQueue.main.async {
-                        callback(
-                            StandardMeteringError(
-                                code: StandardMeteringError.Code.undeclatedDataType,
-                                message: "Response data type not declared"
-                            ),
-                            nil
-                        )
-                    }
-                    return;
-                }
-                
-                guard let dataObject = jsonData["data"] as? [String:Any] else {
-                    DispatchQueue.main.async {
-                        callback(
-                            StandardMeteringError(
-                                code: StandardMeteringError.Code.unexpectedDataStructure,
-                                message: "Response data not in json format"
-                            ),
-                            nil
-                        )
-                    }
-                    return;
-                }
-                
-                // If data type is user
-                if dataType == "user" {
-                    
-                    if let userInfo = getUserInfoFromNetworkObject(fromJsonObject: dataObject) {
-                        
-                        DispatchQueue.main.async {
-                            callback(
-                                nil,
-                                userInfo
-                            )
-                        }
-                        return;
-                        
-                    } else {
-                        DispatchQueue.main.async {
-                            callback(
-                                StandardMeteringError(
-                                    code: StandardMeteringError.Code.unexpectedDataStructure,
-                                    message: "Unexpected response data structure"
-                                ),
-                                nil
-                            )
-                        }
-                        return;
-                    }
-                
-                } else {
-                    
-                }
-            }
+            handleNetworkResponse(data: data, error: error, callback: callback)
         }
         
         task.resume()
@@ -192,7 +61,177 @@ class NetworkRequest {
     
 }
 
-func getUserInfoFromNetworkObject(fromJsonObject jsonData: [String:Any]) -> UserInfo? {
+fileprivate func handleNetworkResponse(
+    data: Data?,
+    error: Error?,
+    callback: @escaping (StandardMeteringError?, Any?) -> Void) {
+    
+    // Check for network error
+    guard error == nil else {
+        DispatchQueue.main.async {
+            
+            callback(
+                StandardMeteringError(
+                    code: .general,
+                    message: "Networking Error"
+                ),
+                nil
+            )
+        }
+        return
+    }
+    
+    // Ensure data was transmitted
+    guard let data = data else {
+        
+        DispatchQueue.main.async {
+            callback(
+                StandardMeteringError(
+                    code: .noDataTransmitted,
+                    message: "No data transmitted"
+                ),
+                nil
+            )
+        }
+        return
+    }
+    
+    var json: [String:Any]? = nil
+    
+    // Deserialize json data
+    do {
+        json = try? JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+    }
+    
+    // Get data into dictionary
+    guard let jsonData = json else {
+        DispatchQueue.main.async {
+            callback(
+                StandardMeteringError(
+                    code: .incorrectDataFormat,
+                    message: "Data format not JSON"
+                ),
+                nil
+            )
+        }
+        return
+    }
+    
+    // Get accepted field from response
+    guard let accepted = jsonData["accepted"] as? Bool else {
+        DispatchQueue.main.async {
+            callback(
+                StandardMeteringError(
+                    code: StandardMeteringError.Code.unexpectedResponseStructure,
+                    message: "Accepted filed not provided"
+                ),
+                nil
+            )
+        }
+        return;
+    }
+    
+    
+    // If response was not accepted
+    if !accepted {
+        
+        // Get error
+        guard let errorObject = jsonData["error"] as? [String:Any],
+            let errorObjectCode = errorObject["code"] as? Int,
+            let errorObjectMessage = errorObject["message"] as? String
+            else {
+                DispatchQueue.main.async {
+                    callback(
+                        StandardMeteringError(
+                            code: StandardMeteringError.Code.unexpectedErrorStructure,
+                            message: "Unknown Error Structure"
+                        ),
+                        nil
+                    )
+                }
+                return;
+        }
+        
+        // Pass error to callback
+        DispatchQueue.main.async {
+            callback(
+                StandardMeteringError(
+                    code: StandardMeteringError.Code(rawValue: errorObjectCode)!,
+                    message: errorObjectMessage
+                ),
+                nil
+            )
+        }
+        return;
+        
+        
+    }
+        // If response was accepted
+    else {
+        
+        // Get accepted field from response
+        guard let dataType = jsonData["data_type"] as? String else {
+            DispatchQueue.main.async {
+                callback(
+                    StandardMeteringError(
+                        code: StandardMeteringError.Code.undeclatedDataType,
+                        message: "Response data type not declared"
+                    ),
+                    nil
+                )
+            }
+            return;
+        }
+        
+        guard let dataObject = jsonData["data"] as? [String:Any] else {
+            DispatchQueue.main.async {
+                callback(
+                    StandardMeteringError(
+                        code: StandardMeteringError.Code.unexpectedDataStructure,
+                        message: "Response data not in json format"
+                    ),
+                    nil
+                )
+            }
+            return;
+        }
+        
+        // If data type is user
+        if dataType == "user" {
+            
+            if let userInfo = getUserInfoFromNetworkObject(fromJsonObject: dataObject) {
+                
+                DispatchQueue.main.async {
+                    callback(
+                        nil,
+                        userInfo
+                    )
+                }
+                return;
+                
+            } else {
+                DispatchQueue.main.async {
+                    callback(
+                        StandardMeteringError(
+                            code: StandardMeteringError.Code.unexpectedDataStructure,
+                            message: "Unexpected response data structure"
+                        ),
+                        nil
+                    )
+                }
+                return;
+            }
+            
+        } else if dataType == "install" {
+            
+            callback(nil, nil)
+            
+        }
+    }
+    
+}
+
+fileprivate func getUserInfoFromNetworkObject(fromJsonObject jsonData: [String:Any]) -> UserInfo? {
     
     guard let arg_google_id = jsonData["google_id"] as? String,
         let arg_display_name = jsonData["display_name"] as? String,

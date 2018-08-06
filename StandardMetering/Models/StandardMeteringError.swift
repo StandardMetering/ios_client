@@ -31,6 +31,8 @@ class StandardMeteringError {
         case tokenDoesNotMatchAnyUser = 603
         case tokenExpired = 604
         case tokenGeneral = 605
+        
+        case dataMalformed = 610
     }
     
     // Local values
