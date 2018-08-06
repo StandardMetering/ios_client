@@ -118,7 +118,6 @@ class InstallModel {
                 return
             }
             
-            // TODO: Move
             install.sync_status = true;
             if( !InstallModel.saveContext() ) {
                 print("Could not save updated sync status on install '\(install.install_num ?? "NULL")'")
@@ -134,6 +133,12 @@ class InstallModel {
         "address_city",
         "address_state",
         "address_zip",
+        
+        "able_to_complete",
+        "pre_image",
+        "pre_valve_pos",
+        "pre_notes",
+        
         "complete"
     ]
     
@@ -143,6 +148,12 @@ class InstallModel {
         "Address City",
         "Address State",
         "Address Zip Code",
+        
+        "Able to Complete",
+        "Pre-install Image",
+        "Pre-install Valve Postion",
+        "Pre-install notes",
+        
         "Complete"
     ]
     
@@ -167,6 +178,12 @@ extension InstallEntity: Encodable {
         case address_city
         case address_state
         case address_zip
+        
+        case able_to_complete
+        case pre_image
+        case pre_valve_pos
+        case pre_notes
+        
         case complete
     }
     
@@ -178,6 +195,12 @@ extension InstallEntity: Encodable {
         try container.encode(address_city, forKey: .address_city)
         try container.encode(address_state, forKey: .address_state)
         try container.encode(address_zip, forKey: .address_zip)
+        
+        try container.encode(able_to_complete, forKey: .able_to_complete)
+        try container.encode(pre_image, forKey: .pre_image)
+        try container.encode(pre_valve_pos, forKey: .pre_valve_pos)
+        try container.encode(pre_notes, forKey: .pre_notes)
+        
         try container.encode(complete, forKey: .complete)
     }
     

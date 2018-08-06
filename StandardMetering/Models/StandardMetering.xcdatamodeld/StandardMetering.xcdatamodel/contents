@@ -12,8 +12,11 @@
         <attribute name="address_state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="address_street" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="address_zip" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="complete" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="complete" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="install_num" attributeType="String" defaultValueString="-1" syncable="YES"/>
+        <attribute name="pre_image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pre_notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pre_valve_pos" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="sync_status" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="UserEntity" representedClassName="UserEntity" syncable="YES" codeGenerationType="class">
@@ -25,7 +28,7 @@
     </entity>
     <elements>
         <element name="Event" positionX="261" positionY="189" width="128" height="60"/>
-        <element name="InstallEntity" positionX="270" positionY="234" width="128" height="165"/>
+        <element name="InstallEntity" positionX="270" positionY="234" width="128" height="210"/>
         <element name="UserEntity" positionX="270" positionY="207" width="128" height="120"/>
     </elements>
 </model>

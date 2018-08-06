@@ -40,7 +40,9 @@ class EditInstallViewController: InstallViewController {
      */
     func userIndicatesSaveIntention() {
         self.install.sync_status = false
-        InstallModel.saveContext()
+        if !InstallModel.saveContext() {
+            print("Could not save install")
+        }
     }
     
     

@@ -36,6 +36,7 @@
 		E08B7A9320E1CC6300950890 /* InstallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08B7A9220E1CC6300950890 /* InstallModel.swift */; };
 		E0C3A5A320CF749C00591135 /* StandardMeteringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3A5A220CF749C00591135 /* StandardMeteringError.swift */; };
 		E0C3A5A620CF754000591135 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3A5A520CF754000591135 /* NetworkRequest.swift */; };
+		E0CE61232118DD9500C4EA57 /* EditPreInstallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CE61222118DD9400C4EA57 /* EditPreInstallViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		E08B7A9220E1CC6300950890 /* InstallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallModel.swift; sourceTree = "<group>"; };
 		E0C3A5A220CF749C00591135 /* StandardMeteringError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardMeteringError.swift; sourceTree = "<group>"; };
 		E0C3A5A520CF754000591135 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		E0CE61222118DD9400C4EA57 /* EditPreInstallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPreInstallViewController.swift; sourceTree = "<group>"; };
 		E83B30174F92D5785C72C6CB /* Pods-StandardMetering.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardMetering.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StandardMetering/Pods-StandardMetering.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,6 +221,7 @@
 				E0345BCD20F12C45008E64BE /* InstallDetailViewController.swift */,
 				E06DEE2220E999F800110BB2 /* EditInstallViewController.swift */,
 				E06DEE2020E9699400110BB2 /* EditInstallAddressViewController.swift */,
+				E0CE61222118DD9400C4EA57 /* EditPreInstallViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 			files = (
 				E036CC9220F199F8007B4E8E /* InstallViewController.swift in Sources */,
 				E0345BCE20F12C45008E64BE /* InstallDetailViewController.swift in Sources */,
+				E0CE61232118DD9500C4EA57 /* EditPreInstallViewController.swift in Sources */,
 				E00E5CE620CD9D9B00C478A0 /* AppDelegate.swift in Sources */,
 				E036CC9420F1A076007B4E8E /* InstallItemDetailCell.swift in Sources */,
 				E00E5D1D20CDB28F00C478A0 /* SplitViewController.swift in Sources */,

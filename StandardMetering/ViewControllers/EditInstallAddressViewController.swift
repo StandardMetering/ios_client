@@ -63,6 +63,16 @@ class EditInstallAddressViewController: EditInstallViewController, UIPickerViewD
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "segueToEditPreInstall" {
+            if let destVC = segue.destination as? EditPreInstallViewController {
+                destVC.install = self.install
+            }
+        }
+        
+    }
+    
     
     /**
         Called whenever any changes have been made that may affect the UI.
@@ -134,12 +144,7 @@ class EditInstallAddressViewController: EditInstallViewController, UIPickerViewD
     override func userIndicatesContinueIntention() {
         super.userIndicatesSaveIntention()
         
-        displayActionSheet(
-            forView: self.btn_saveAndContinue,
-            withTitle: "Continue",
-            message: "Continue to next step of install",
-            affirmLabel: "Okay"
-        )
+        performSegue(withIdentifier: "segueToEditPreInstall", sender: self)
     }
     
     

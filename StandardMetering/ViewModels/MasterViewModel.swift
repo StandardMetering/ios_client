@@ -96,7 +96,7 @@ class MasterViewModel: NSObject, UITableViewDataSource {
         self.incompleteInstalls.removeAll()
         
         for install in installs {
-            if install.able_to_complete {
+            if install.complete {
                 self.completeInstalls.append(install)
             } else {
                 self.incompleteInstalls.append(install)
