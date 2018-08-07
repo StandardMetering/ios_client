@@ -170,7 +170,7 @@ class InstallDetailViewController: InstallViewController, UITableViewDataSource,
         let key = InstallModel.installFieldKeys[indexPath.row]
         let value = self.install.value(forKey: key)
         if value == nil {
-            cell.itemDetail = "Not Set"
+            cell.itemDetail = nil
         } else if let boolVal = value as? Bool {
             cell.itemDetail = "\(boolVal.description)"
         } else {

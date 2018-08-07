@@ -27,8 +27,10 @@ class InstallItemDetailCell: UITableViewCell {
         didSet {
             if let text = self.itemDetail {
                 self.lbl_itemDetail.text = text
+                self.lbl_itemDetail.textColor = .black
             } else {
                 self.lbl_itemDetail.text = "Not set"
+                self.lbl_itemDetail.textColor = .red
             }
         }
     }
