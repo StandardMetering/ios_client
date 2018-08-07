@@ -72,7 +72,7 @@ class MasterViewModel: NSObject, UITableViewDataSource {
     var completeInstalls = [InstallEntity]()
     var incompleteInstalls = [InstallEntity]()
     private let profileActions = [
-        "Manage Users", // TODO: Admin Only
+        "Manage Users",
         "Sign Out"
     ]
     
@@ -245,7 +245,30 @@ class MasterViewModel: NSObject, UITableViewDataSource {
     //   Tells table view if user should be allowed to have an "edit" option for a given index path
     //
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == incompleteInstallItem.index {
+            if indexPath.row == 0 {
+                return false
+            }
+            return true
+        }
+        
+        if indexPath.section == completeInstallItem.index {
+            return true
+        }
+        
         return false
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if indexPath.section == incompleteInstallItem.index {
+                InstallModel.delete(incompleteInstalls[indexPath.row - 1])
+            } else if indexPath.section == completeInstallItem.index {
+                InstallModel.delete(completeInstalls[indexPath.row])
+            }
+        }
+    }
+    
+    
     
 }

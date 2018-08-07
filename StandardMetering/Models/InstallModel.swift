@@ -88,6 +88,12 @@ class InstallModel {
         }
     }
     
+    static func delete(_ install: InstallEntity) {
+        managedContext.delete(install);
+        if(!self.saveContext()) {
+            print("Could not save context to delete install \(install.install_num ?? "NULL")")
+        }
+    }
     
     /**
         Syncs an install to the standard metering server

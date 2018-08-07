@@ -76,7 +76,7 @@ class InstallDetailViewController: InstallViewController, UITableViewDataSource,
             return;
         }
         
-        self.title = "Install #\(install.install_num!)"
+        self.title = "Install #\(install.install_num ?? "NULL")"
         
         guard let currentUser = UserModel.getSharedInstance() else {
             displayActionSheet(

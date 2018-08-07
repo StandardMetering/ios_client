@@ -355,6 +355,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPe-zy-get">
                                 <rect key="frame" x="117" y="114" width="242" height="30"/>
                                 <state key="normal" title="Image Button"/>
+                                <connections>
+                                    <action selector="imageButtonPressed" destination="h4i-Hp-aau" eventType="touchUpInside" id="vse-Nz-vm2"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valve Position:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wak-bB-NI6">
                                 <rect key="frame" x="16" y="159" width="111" height="21"/>
