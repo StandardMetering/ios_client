@@ -109,7 +109,6 @@ class InstallDetailViewController: InstallViewController, UITableViewDataSource,
         Called when performing an unwind segue back to this view controller.
      */
     @IBAction func unwindToInstallDetailView(segue: UIStoryboardSegue) {
-        print("Unwind: \(self.install.able_to_complete)")
         self.updateUI()
     }
     
@@ -171,6 +170,8 @@ class InstallDetailViewController: InstallViewController, UITableViewDataSource,
         let value = self.install.value(forKey: key)
         if value == nil {
             cell.itemDetail = nil
+        } else if key.contains("image") {
+            cell.itemDetail = "Image"
         } else if let boolVal = value as? Bool {
             cell.itemDetail = "\(boolVal.description)"
         } else {

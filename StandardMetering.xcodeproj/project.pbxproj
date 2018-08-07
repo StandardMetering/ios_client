@@ -34,6 +34,8 @@
 		E07A20BD20D1E92900CDCC11 /* SyncActionsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07A20BC20D1E92900CDCC11 /* SyncActionsCellModel.swift */; };
 		E08B7A9120E1BD9D00950890 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08B7A9020E1BD9D00950890 /* Util.swift */; };
 		E08B7A9320E1CC6300950890 /* InstallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08B7A9220E1CC6300950890 /* InstallModel.swift */; };
+		E0ACDC51211A22FC00CF0E15 /* DisplayImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACDC50211A22FB00CF0E15 /* DisplayImageViewController.swift */; };
+		E0ACDC54211A3D9000CF0E15 /* MappingModelV1V2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E0ACDC53211A3D9000CF0E15 /* MappingModelV1V2.xcmappingmodel */; };
 		E0C3A5A320CF749C00591135 /* StandardMeteringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3A5A220CF749C00591135 /* StandardMeteringError.swift */; };
 		E0C3A5A620CF754000591135 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C3A5A520CF754000591135 /* NetworkRequest.swift */; };
 		E0CE61232118DD9500C4EA57 /* EditPreInstallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CE61222118DD9400C4EA57 /* EditPreInstallViewController.swift */; };
@@ -95,6 +97,9 @@
 		E07A20BC20D1E92900CDCC11 /* SyncActionsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncActionsCellModel.swift; sourceTree = "<group>"; };
 		E08B7A9020E1BD9D00950890 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		E08B7A9220E1CC6300950890 /* InstallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallModel.swift; sourceTree = "<group>"; };
+		E0ACDC50211A22FB00CF0E15 /* DisplayImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayImageViewController.swift; sourceTree = "<group>"; };
+		E0ACDC52211A3B0600CF0E15 /* StandardMetering 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "StandardMetering 2.xcdatamodel"; sourceTree = "<group>"; };
+		E0ACDC53211A3D9000CF0E15 /* MappingModelV1V2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModelV1V2.xcmappingmodel; sourceTree = "<group>"; };
 		E0C3A5A220CF749C00591135 /* StandardMeteringError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardMeteringError.swift; sourceTree = "<group>"; };
 		E0C3A5A520CF754000591135 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		E0CE61222118DD9400C4EA57 /* EditPreInstallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPreInstallViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +220,7 @@
 				E00E5D1820CDAD7400C478A0 /* SignInViewController.swift */,
 				E00E5D1C20CDB28F00C478A0 /* SplitViewController.swift */,
 				E00E5CEA20CD9D9B00C478A0 /* MasterViewController.swift */,
+				E0ACDC50211A22FB00CF0E15 /* DisplayImageViewController.swift */,
 				E00E5CEC20CD9D9B00C478A0 /* DetailViewController.swift */,
 				E04E55D420D1F7B5006D673E /* CreateNewInstallViewController.swift */,
 				E036CC9120F199F8007B4E8E /* InstallViewController.swift */,
@@ -239,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				E00E5CE720CD9D9B00C478A0 /* StandardMetering.xcdatamodeld */,
+				E0ACDC53211A3D9000CF0E15 /* MappingModelV1V2.xcmappingmodel */,
 				E00E5D2220CDBAC200C478A0 /* UserModel.swift */,
 				E0C3A5A220CF749C00591135 /* StandardMeteringError.swift */,
 				E08B7A9220E1CC6300950890 /* InstallModel.swift */,
@@ -571,10 +578,12 @@
 				E00E5D2320CDBAC200C478A0 /* UserModel.swift in Sources */,
 				E00E5CE920CD9D9B00C478A0 /* StandardMetering.xcdatamodeld in Sources */,
 				E0C3A5A620CF754000591135 /* NetworkRequest.swift in Sources */,
+				E0ACDC54211A3D9000CF0E15 /* MappingModelV1V2.xcmappingmodel in Sources */,
 				E08B7A9320E1CC6300950890 /* InstallModel.swift in Sources */,
 				E06DEE2120E9699400110BB2 /* EditInstallAddressViewController.swift in Sources */,
 				E04E55D520D1F7B5006D673E /* CreateNewInstallViewController.swift in Sources */,
 				E00E5CEB20CD9D9B00C478A0 /* MasterViewController.swift in Sources */,
+				E0ACDC51211A22FC00CF0E15 /* DisplayImageViewController.swift in Sources */,
 				E08B7A9120E1BD9D00950890 /* Util.swift in Sources */,
 				E07A20BD20D1E92900CDCC11 /* SyncActionsCellModel.swift in Sources */,
 				E00E5D1B20CDAF2D00C478A0 /* StandardMeteringConstants.swift in Sources */,
@@ -925,9 +934,10 @@
 		E00E5CE720CD9D9B00C478A0 /* StandardMetering.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				E0ACDC52211A3B0600CF0E15 /* StandardMetering 2.xcdatamodel */,
 				E00E5CE820CD9D9B00C478A0 /* StandardMetering.xcdatamodel */,
 			);
-			currentVersion = E00E5CE820CD9D9B00C478A0 /* StandardMetering.xcdatamodel */;
+			currentVersion = E0ACDC52211A3B0600CF0E15 /* StandardMetering 2.xcdatamodel */;
 			path = StandardMetering.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -20,11 +20,15 @@ class EditPreInstallViewController: EditInstallViewController, UIPickerViewDeleg
     @IBOutlet weak var ta_notes: UITextView!
     var picker_valvePos = UIPickerView()
     
-    var imagePicker: UIImagePickerController?
+    let imagePicker = UIImagePickerController()
+    
+    var currentImage: UIImage? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.imagePicker.delegate = self
+        
         self.picker_valvePos.dataSource = self
         self.picker_valvePos.delegate = self
         self.tf_valvePos.inputView = picker_valvePos
@@ -92,9 +96,27 @@ class EditPreInstallViewController: EditInstallViewController, UIPickerViewDeleg
             self.tf_valvePos.isHidden = true
             
         }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if segue.identifier == "segueToDisplayImage" {
+            if let destVC = segue.destination as? DisplayImageViewController {
+                destVC.imageToDisplay = self.currentImage
+            }
+        }
+    }
+    
+    @IBAction func unwindFromDisplayImage(_ sender: UIStoryboardSegue) {
+        
+        if let senderVC = sender.source as? DisplayImageViewController {
+            self.install.pre_image = senderVC.currentImageData
+            self.updateUI()
+        }
         
     }
+    
     
     // -----------------------------------------------------------------------------------------------------------------
     // MARK: - Actions
@@ -107,6 +129,12 @@ class EditPreInstallViewController: EditInstallViewController, UIPickerViewDeleg
     
     @IBAction func imageButtonPressed() {
         
+        if let prevImage = self.install.pre_image {
+            self.currentImage = UIImage(data:prevImage)
+            performSegue(withIdentifier: "segueToDisplayImage", sender: self)
+            return
+        }
+        
         // Init option menu
         let optionMenu = UIAlertController(
             title: "Photo",
@@ -114,32 +142,20 @@ class EditPreInstallViewController: EditInstallViewController, UIPickerViewDeleg
             preferredStyle: .actionSheet
         )
         
-        if let prevImage = self.install.pre_image {
-            
-            let viewPhotoAction = UIAlertAction(title: "View Photo", style: .default) { alert in
-                print("View photo: \(prevImage)")
-            }
-            optionMenu.addAction(viewPhotoAction)
-            
-        }
-        
         // Take photo action
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default) { alert in
-                self.imagePicker = UIImagePickerController()
-                self.imagePicker!.delegate = self
-                self.imagePicker!.sourceType = .camera
-                self.present(self.imagePicker!, animated: true, completion: nil)
+                self.imagePicker.sourceType = .camera
+                self.present(self.imagePicker, animated: true, completion: nil)
             }
             optionMenu.addAction(takePhotoAction)
         }
         
         // Choose photo action
         let choosePhotoAction = UIAlertAction(title: "Choose Photo", style: .default) { alert in
-            self.imagePicker = UIImagePickerController(rootViewController: self)
-            self.imagePicker!.delegate = self
-            self.imagePicker!.sourceType = .photoLibrary
-            self.present(self.imagePicker!, animated: true, completion: nil)
+            self.imagePicker.delegate = self
+            self.imagePicker.sourceType = .photoLibrary
+            self.present(self.imagePicker, animated: true, completion: nil)
         }
         optionMenu.addAction(choosePhotoAction)
         
@@ -160,7 +176,6 @@ class EditPreInstallViewController: EditInstallViewController, UIPickerViewDeleg
     
     override func userIndicatesSaveIntention() {
         self.updateInstallEntityWithUIValues()
-        print("Pre save: \(self.install.able_to_complete)")
         super.userIndicatesSaveIntention()
     }
     
@@ -211,15 +226,15 @@ class EditPreInstallViewController: EditInstallViewController, UIPickerViewDeleg
     
     
     // -----------------------------------------------------------------------------------------------------------------
-    // MARK: - Utility Functions
+    // MARK: - Image Picker Controller
     // -----------------------------------------------------------------------------------------------------------------
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        self.imagePicker!.dismiss(animated: true, completion: nil)
+        self.imagePicker.dismiss(animated: true, completion: nil)
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            let imageData = UIImagePNGRepresentation(image)
-            self.install.pre_image = imageData?.base64EncodedString()
+            self.currentImage = image
+            performSegue(withIdentifier: "segueToDisplayImage", sender: self)
         } else {
             displayActionSheet(
                 withTitle: "Error",

@@ -435,12 +435,92 @@
                         <outlet property="ta_notes" destination="ez3-TF-TER" id="Xfm-mq-N3Q"/>
                         <outlet property="tf_valvePos" destination="bVx-yT-ZfV" id="Vsp-9j-m1d"/>
                         <segue destination="QZq-ql-kSe" kind="unwind" identifier="unwindToInstallDetailView" unwindAction="unwindToInstallDetailViewWithSegue:" id="bIF-wR-cte"/>
+                        <segue destination="RnV-W8-rqW" kind="show" identifier="segueToDisplayImage" id="RRz-dU-7Pq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLi-Mv-Wv4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QZq-ql-kSe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3392.8000000000002" y="1609.745127436282"/>
+        </scene>
+        <!--Edit Image-->
+        <scene sceneID="eVk-cS-Wes">
+            <objects>
+                <viewController title="Edit Image" id="RnV-W8-rqW" customClass="DisplayImageViewController" customModule="StandardMetering" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oQb-RF-mc6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHd-oU-zF1">
+                                <rect key="frame" x="16" y="617" width="343" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Retake Image">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="declineImagePressed" destination="RnV-W8-rqW" eventType="touchUpInside" id="hDy-Tt-ofJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCa-ms-wLd">
+                                <rect key="frame" x="16" y="579" width="343" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Accept Image">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="8UL-n9-aVH" kind="unwind" unwindAction="unwindFromDisplayImage:" id="UTg-fn-vBq"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KTN-G3-in4">
+                                <rect key="frame" x="16" y="80" width="343" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="jhz-kL-6HJ"/>
+                                </constraints>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lft-J7-UAn">
+                                <rect key="frame" x="16" y="538" width="345" height="31"/>
+                                <connections>
+                                    <action selector="resolutionSliderValueChanged:" destination="RnV-W8-rqW" eventType="valueChanged" id="8mr-Am-ege"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEV-C2-MFP">
+                                <rect key="frame" x="16" y="509" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yHd-oU-zF1" firstAttribute="top" secondItem="kCa-ms-wLd" secondAttribute="bottom" constant="8" id="5sT-YP-Oc5"/>
+                            <constraint firstItem="KTN-G3-in4" firstAttribute="leading" secondItem="fSK-ij-ymo" secondAttribute="leading" constant="16" id="A0h-6I-avO"/>
+                            <constraint firstItem="fSK-ij-ymo" firstAttribute="trailing" secondItem="kCa-ms-wLd" secondAttribute="trailing" constant="16" id="GJy-bD-dkK"/>
+                            <constraint firstItem="lft-J7-UAn" firstAttribute="leading" secondItem="fSK-ij-ymo" secondAttribute="leading" constant="18" id="GdY-E5-z1M"/>
+                            <constraint firstItem="kCa-ms-wLd" firstAttribute="top" secondItem="lft-J7-UAn" secondAttribute="bottom" constant="11" id="KGs-uZ-NoK"/>
+                            <constraint firstItem="yHd-oU-zF1" firstAttribute="leading" secondItem="fSK-ij-ymo" secondAttribute="leading" constant="16" id="M3w-Tn-iSo"/>
+                            <constraint firstItem="fSK-ij-ymo" firstAttribute="bottom" secondItem="yHd-oU-zF1" secondAttribute="bottom" constant="20" id="Ndz-Za-Zmm"/>
+                            <constraint firstItem="fSK-ij-ymo" firstAttribute="trailing" secondItem="AEV-C2-MFP" secondAttribute="trailing" constant="16" id="O9r-1o-P5m"/>
+                            <constraint firstItem="fSK-ij-ymo" firstAttribute="trailing" secondItem="lft-J7-UAn" secondAttribute="trailing" constant="16" id="iG5-vz-7jW"/>
+                            <constraint firstItem="fSK-ij-ymo" firstAttribute="trailing" secondItem="KTN-G3-in4" secondAttribute="trailing" constant="16" id="je8-4w-jBu"/>
+                            <constraint firstItem="fSK-ij-ymo" firstAttribute="trailing" secondItem="yHd-oU-zF1" secondAttribute="trailing" constant="16" id="l1e-87-uxe"/>
+                            <constraint firstItem="lft-J7-UAn" firstAttribute="top" secondItem="AEV-C2-MFP" secondAttribute="bottom" constant="8" id="t8b-bg-HB2"/>
+                            <constraint firstItem="KTN-G3-in4" firstAttribute="top" secondItem="fSK-ij-ymo" secondAttribute="top" constant="16" id="tAc-hZ-lDZ"/>
+                            <constraint firstItem="AEV-C2-MFP" firstAttribute="leading" secondItem="fSK-ij-ymo" secondAttribute="leading" constant="16" id="x8a-K5-1wj"/>
+                            <constraint firstItem="kCa-ms-wLd" firstAttribute="leading" secondItem="fSK-ij-ymo" secondAttribute="leading" constant="16" id="ydV-Zq-zLM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fSK-ij-ymo"/>
+                    </view>
+                    <connections>
+                        <outlet property="btn_decline" destination="yHd-oU-zF1" id="QZL-Jz-YjR"/>
+                        <outlet property="imageView" destination="KTN-G3-in4" id="hdD-rF-5G7"/>
+                        <outlet property="lbl_imageName" destination="AEV-C2-MFP" id="NRP-X9-ojv"/>
+                        <outlet property="resolutionSlider" destination="lft-J7-UAn" id="OkS-ah-6et"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lMJ-O2-49k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="8UL-n9-aVH" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4309.6000000000004" y="920.68965517241384"/>
         </scene>
         <!--Install Detail View Controller-->
         <scene sceneID="hrV-45-D8C">
